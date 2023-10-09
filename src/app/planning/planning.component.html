@@ -1,0 +1,36 @@
+<h1>Planning</h1>
+
+<div class="container">
+  <mat-grid-list cols="7" rowHeight="1:1">
+    <mat-grid-tile
+      *ngFor="let thedate of dateList"
+      [routerLink]="['/planning-infos', thedate.id]"
+    >
+      <mat-card fxLayout="column">
+        <mat-card-header fxFlex="46px">
+          <mat-card-title>{{ thedate.date }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img
+            mat-card-image
+            width="130"
+            height="160"
+            src=" {{ thedate.img }} "
+            alt="carater picture 1"
+          />
+          <h2 style="text-align: center">{{ thedate.id }}Voir les RDV</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<!-- 
+<p>{{ theDateList[0].theDate_id }}</p>
+<p>{{ theDateList[1].theDate_id }}</p>
+<p>{{ theDateList[2].theDate_id }}</p>
+<p>{{ theDateList[3].theDate_id }}</p>
+<p>{{ theDateList[4].theDate_id }}</p>
+<p>{{ theDateList[5].theDate_id }}</p>
+...
+-->
