@@ -5,8 +5,7 @@ export class theDate {
 
     rdvName: string;
     orga: string;
-    guessList: string;
-    participantsList: string;
+    guestList: string;
     statut: string;
     askToParticipate: string;
   }

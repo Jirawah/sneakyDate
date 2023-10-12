@@ -1,0 +1,23 @@
+<h2>Créer un RDV pour le jour {{ id }}</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nom du RDV</mat-label>
+    <input matInput [(ngModel)]="rdv.rdvName" name="rdvName" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Statut</mat-label>
+    <mat-select [(ngModel)]="rdv.statut" name="statut">
+      <mat-option value="PUBLIC">OPEN</mat-option>
+      <mat-option value="PRIVATE">PRIVATE</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Liste des invités</mat-label>
+    <input matInput [(ngModel)]="rdv.guestList" name="guestList" />
+  </mat-form-field>
+  <br />
+  <button mat-raised-button type="submit">Créer</button>
+</form>

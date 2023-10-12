@@ -1,0 +1,13 @@
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+  }

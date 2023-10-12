@@ -8,27 +8,40 @@ import { AppRoutingModule } from './app-routing.module';
 /*
 *  J'importe le fichier qui contient les routes de mon projet et le premier composant dans le module racine
 */
-import { AppComponent } from './app.component';
-import { PlanningComponent } from './planning/planning.component';
-import { PlanningInfosComponent } from './planning-infos/planning-infos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { PlanningInfosComponent } from './planning-infos/planning-infos.component';
+import { PlanningComponent } from './planning/planning.component';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { PlanningInfosDataService } from './planning-infos/planning-infos-data.service';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { PlanningInfosDataService } from './services/planning-infos-data.service';
+import { CdkTableModule } from '@angular/cdk/table';
+import { PlanningRdvComponent } from './planning-rdv/planning-rdv.component';
+import { RegistrationService } from './services/registration.service';
+import { HeaderComponent } from './header/header.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanningComponent,
-    PlanningInfosComponent
+    PlanningInfosComponent,
+    PlanningRdvComponent,
+    HeaderComponent,
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -38,10 +51,17 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatButtonModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    CdkTableModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [
-    PlanningInfosDataService
+    PlanningInfosDataService,
+    RegistrationService
   ],
   bootstrap: [
     AppComponent

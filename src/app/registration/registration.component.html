@@ -1,0 +1,47 @@
+<div class="registration-container">
+  <h2>Inscription</h2>
+
+  <form (ngSubmit)="register()">
+    <mat-form-field>
+      <mat-label>Pseudonyme</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="memberName"
+        name="pseudonyme"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="email" name="email" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirmez le mot de passe</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        required
+      />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">S'inscrire</button>
+  </form>
+
+  <div *ngIf="message">{{ message }}</div>
+</div>
