@@ -87,19 +87,20 @@ app.post('/api/rdv', (req, res) => {
 
 // Route d'inscription
 app.post('/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { memberName, email, password } = req.body;
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10); // Hash le mot de passe
 
-        const query = "INSERT INTO member (memberName, email, password) VALUES (?, ?)";
+        const query = "INSERT INTO member (memberName, email, password) VALUES (?, ?, ?)";
         connection.query(query, [memberName, email, hashedPassword], (err, result) => {
-            if (err) {
-                res.status(500).send('Erreur lors de la création du compte');
-            } else {
-                res.status(200).send('Compte créé avec succès');
-            }
-        });
+          if (err) {
+              console.log("Erreur SQL:", err); // Ajoutez cette ligne
+              res.status(500).send('Erreur lors de la création du compte');
+          } else {
+            res.status(200).json({ message: "Compte créé avec succès" });
+          }
+      });
     } catch {
         res.status(500).send('Erreur serveur');
     }
