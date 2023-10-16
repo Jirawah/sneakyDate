@@ -44,4 +44,7 @@
   </form>
 
   <div *ngIf="message">{{ message }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
 </div>

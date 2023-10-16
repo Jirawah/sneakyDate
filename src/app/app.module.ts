@@ -32,6 +32,7 @@ import { RegistrationService } from './services/registration.service';
 import { HeaderComponent } from './header/header.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     PlanningInfosDataService,
-    RegistrationService
+    RegistrationService,
+    MessageService
   ],
   bootstrap: [
     AppComponent

@@ -16,6 +16,20 @@ export class RegistrationService {
     return this.httpClient.post<any>(`${this.baseURL}/register`, body);  // <--- Nous indiquons également que .post() renvoie un type 'any' pour l'instant.
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 
