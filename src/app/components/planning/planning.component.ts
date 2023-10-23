@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { theDate } from "../models/thedate.models";
+import { theDate } from "../../models/thedate.models";
 
 @Component({
   selector: "app-planning",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RdvService } from '../services/rdv.service';
+import { RdvService } from '../../services/rdv.service';
 
 @Component({
   selector: 'app-planning-infos',

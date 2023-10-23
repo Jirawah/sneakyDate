@@ -10,29 +10,34 @@ import { AppRoutingModule } from './app-routing.module';
 */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { PlanningInfosComponent } from './planning-infos/planning-infos.component';
-import { PlanningComponent } from './planning/planning.component';
+import { PlanningInfosComponent } from './components/planning-infos/planning-infos.component';
+import { PlanningComponent } from './components/planning/planning.component';
 
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
-import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { PlanningInfosDataService } from './services/planning-infos-data.service';
 import { CdkTableModule } from '@angular/cdk/table';
-import { PlanningRdvComponent } from './planning-rdv/planning-rdv.component';
-import { RegistrationService } from './services/registration.service';
-import { HeaderComponent } from './header/header.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
+import { PlanningRdvComponent } from './components/planning-rdv/planning-rdv.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
 import { MessageService } from './services/message.service';
+import { PlanningInfosDataService } from './services/planning-infos-data.service';
+import { RegistrationService } from './services/registration.service';
+import { HeaderComponent } from './shared/header/header.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './services/jwt.interceptor';
+import { AuthGuard } from './auth.guard';
+import { CardboxService } from './services/cardbox.service'; 
 
 @NgModule({
   declarations: [
@@ -45,10 +50,10 @@ import { MessageService } from './services/message.service';
     LoginComponent
   ],
   imports: [
-    HttpClientModule,
     MatCardModule,
     MatGridListModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatButtonModule,
     FlexLayoutModule,
@@ -58,12 +63,15 @@ import { MessageService } from './services/message.service';
     MatFormFieldModule,
     FormsModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
+    AuthGuard,
     PlanningInfosDataService,
     RegistrationService,
-    MessageService
+    MessageService,
+    CardboxService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [
     AppComponent

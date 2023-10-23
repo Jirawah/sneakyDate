@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RegistrationService } from '../services/registration.service';
 import { Router } from '@angular/router';
-import { MessageService } from '../services/message.service';
+import { MessageService } from '../../services/message.service';
+import { RegistrationService } from '../../services/registration.service';
 
 @Component({
   selector: 'app-register',
@@ -24,13 +24,14 @@ export class RegistrationComponent {
   ) { }
 
   register() {
-    this.registrationService.registerUser(this.memberName, this.email, this.password).subscribe(
-      response => {
+    this.registrationService.registerUser(this.memberName, this.email, this.password)
+    .subscribe({
+      next: () => {
         console.log('Compte créé avec succès');
         this.messageService.setMessage('Compte créé avec succès');
         this.router.navigate(['/login']);
       },
-      error => {
+      error: (error) => {
         console.error('Erreur lors de la création du compte', error);
         if (error.error && error.error.error) {
           switch (error.error.error) {
@@ -47,7 +48,7 @@ export class RegistrationComponent {
           this.errorMessage = 'Erreur lors de la création du compte. Veuillez réessayer.';
         }
       }
-    );
+  });
   }
 }
 //   register() {

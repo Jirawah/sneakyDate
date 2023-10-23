@@ -16,7 +16,7 @@ export class RdvService {
   }
 
   createRdv(rdvData: any) {
-    return this.http.post('${this.apiBaseUrl}/api/rdv', rdvData);
+    return this.http.post(`${this.apiBaseUrl}/api/rdv`, rdvData);
   }
 }
 // import { Injectable } from '@angular/core';

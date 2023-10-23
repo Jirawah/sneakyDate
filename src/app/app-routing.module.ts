@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlanningComponent } from './planning/planning.component';
-import { PlanningInfosComponent } from './planning-infos/planning-infos.component';
-import { PlanningRdvComponent } from './planning-rdv/planning-rdv.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { PlanningInfosComponent } from './components/planning-infos/planning-infos.component';
+import { PlanningRdvComponent } from './components/planning-rdv/planning-rdv.component';
+import { PlanningComponent } from './components/planning/planning.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
-import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -18,8 +19,9 @@ const routes: Routes = [
     component: PlanningInfosComponent
   }, 
   {
-    path: 'planning-rdv',
-    component: PlanningRdvComponent
+    path: 'planning-rdv/:id',
+    component: PlanningRdvComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
