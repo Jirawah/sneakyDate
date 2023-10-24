@@ -3,8 +3,13 @@
     <h1>SneakyDate<br></h1>
     <h2>AnAmongUsRDVApp</h2>
   </div>
-    <div class="nav-buttons">
+    <div class="nav-buttons" *ngIf="!isLogged" >
       <button mat-button [routerLink]="['/register']">S'inscrire</button>
       <button mat-button [routerLink]="['/login']">Se connecter</button>
+    </div>
+    <div class="nav-buttons" *ngIf="isLogged">
+      <p>Bonjour imposter</p>
+      <button mat-button [routerLink]="['/profil']">Profil</button>
+      <button mat-button (click)="logout()">Déconnexion</button>
     </div>
   </nav>

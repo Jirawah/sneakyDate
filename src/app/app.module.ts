@@ -26,18 +26,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { CdkTableModule } from '@angular/cdk/table';
+import { LoginComponent } from './components/login/login.component';
 import { PlanningRdvComponent } from './components/planning-rdv/planning-rdv.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { LoginComponent } from './components/login/login.component';
 import { MessageService } from './services/message.service';
 import { PlanningInfosDataService } from './services/planning-infos-data.service';
 import { RegistrationService } from './services/registration.service';
 import { HeaderComponent } from './shared/header/header.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './guards/auth.guard';
+import { CardboxService } from './services/cardbox.service';
 import { JwtInterceptor } from './services/jwt.interceptor';
-import { AuthGuard } from './auth.guard';
-import { CardboxService } from './services/cardbox.service'; 
 
 @NgModule({
   declarations: [

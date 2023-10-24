@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RdvService } from '../../services/rdv.service';
 import { CardboxService } from '../../services/cardbox.service'; // Assurez-vous d'importer le bon chemin
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-planning-rdv',
@@ -26,7 +25,6 @@ export class PlanningRdvComponent implements OnInit {
     private route: ActivatedRoute,
     private rdvService: RdvService,
     private router: Router,
-    private authService: AuthService,
     private cardboxService: CardboxService  // Injectez le service ici
   ) { }
 
@@ -58,26 +56,26 @@ export class PlanningRdvComponent implements OnInit {
     console.log('Cardbox ID:', this.cardboxId);
 
     // Récupérer l'ID utilisateur à partir du token.
-    const userId = this.authService.getUserIdFromToken();
+    // const userId = this.authService.getUserIdFromToken();
 
-    // Vérifier si l'ID utilisateur a été trouvé.
-    if (userId !== null) {
-      this.rdv.member_id = userId;
+    // // Vérifier si l'ID utilisateur a été trouvé.
+    // if (userId !== null) {
+    //   this.rdv.member_id = userId;
 
-      const rdvDataToSend = {
-        ...this.rdv,
-        cardbox_id: this.cardboxId
-      };
+    //   const rdvDataToSend = {
+    //     ...this.rdv,
+    //     cardbox_id: this.cardboxId
+    //   };
 
-      this.rdvService.createRdv(rdvDataToSend).subscribe(response => {
-        this.router.navigate([`/planning-infos/${this.id}`]);
-      }, error => {
-        console.error('Erreur lors de la création du RDV:', error);
-      });
+    //   this.rdvService.createRdv(rdvDataToSend).subscribe(response => {
+    //     this.router.navigate([`/planning-infos/${this.id}`]);
+    //   }, error => {
+    //     console.error('Erreur lors de la création du RDV:', error);
+    //   });
 
-    } else {
-      console.error("L'utilisateur n'est pas connecté ou l'ID utilisateur est introuvable dans le token.");
-    }
+    // } else {
+    //   console.error("L'utilisateur n'est pas connecté ou l'ID utilisateur est introuvable dans le token.");
+    // }
   }
 }
 //   onSubmit() {
