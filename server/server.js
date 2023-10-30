@@ -105,37 +105,63 @@ app.get("/rdvs", (req, res) => {
     if (err) {
       res
         .status(500)
-        .json({ error: "Erreur lors de la récupération des RDVs." });
+        .send(error);
     } else {
-      res.json(results);
+      res.send(results);
     }
   });
 });
 
 app.post("/api/rdv", (req, res) => {
-  const { cardbox_id, rdvName, orga, guestList, statut } = req.body;
-  console.log("Data received for RDV:", {
-    cardbox_id,
-    rdvName,
-    orga,
-    guestList,
-    statut,
-  });
-  const member_id = 1;
+  const { member_id, cardbox_id, rdvName, orga, guestList, statut } = req.body;
+  console.log(req.body);
   const query = `INSERT INTO RDV (cardbox_id, rdvName, orga, statut, member_id) VALUES (?, ?, ?, ?, ?)`;
   connection.query(
     query,
     [cardbox_id, rdvName, orga, statut, member_id],
     (err, result) => {
       if (err) {
-        console.error(err); // Log the error
-        res.status(500).send("Error saving RDV to database: " + err.message);
+        console.error("err", err); // Log the error
+        res.status(500).send(err);
       } else {
-        res.status(200).send("RDV created successfully");
+        res.status(200).send(result);
       }
     }
   );
 });
+
+app.get("/rdvs/:id", (req, res) => {
+
+  const cardbox_id = req.params.id;
+  console.log(cardbox_id);
+  const query = "SELECT * FROM rdv WHERE cardbox_id = ?";
+
+  connection.query(query, [cardbox_id], (err, results) => {
+    if (err) {
+      res.status(500).json({ error: 'Erreur lors de la récupération des RDVs.' });
+    } else {
+      res.status(200).json(results);
+    }
+  })
+});
+// const cardboxId = req.params.cardbox_id;
+// app.get('/rdvs', (req, res) => {
+//     const dateId = req.query.dateId;
+
+//     // Requête SQL pour récupérer les RDVs basés sur le dateId
+//     const query = "SELECT * FROM rdv_table WHERE dateId = ?";
+
+//     connection.query(query, [dateId], (err, results) => {
+//       if (err) {
+//         // Gestion d'erreur: renvoie une réponse d'erreur
+//         res.status(500).json({ error: 'Erreur lors de la récupération des RDVs.' });
+//       } else {
+//         // Renvoie les résultats de la requête
+//         res.json(results);
+//       }
+//     });
+//   });
+
 
 // Route d'inscription
 app.post("/register", async (req, res) => {
@@ -281,14 +307,14 @@ app.get("/cardbox/:cardbox_id", (req, res) => {
   connection.query(query, [cardboxId], (err, results) => {
     if (err) {
       console.error("Erreur lors de la récupération des données:", err);
-      res.status(500).send("Erreur interne du serveur");
+      res.status(500).send(err);
       return;
     }
 
     if (results.length > 0) {
       res.json(results[0]); // renvoyer le premier résultat (puisqu'il devrait y avoir un seul enregistrement correspondant)
     } else {
-      res.status(404).send("Cardbox not found");
+      res.status(404).send(err);
     }
   });
 });

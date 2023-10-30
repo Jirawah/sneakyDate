@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RdvService } from '../../services/rdv.service';
+import { IRdv } from 'src/app/interfaces/rdv.interface';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-planning-infos',
@@ -9,7 +11,7 @@ import { RdvService } from '../../services/rdv.service';
 })
 export class PlanningInfosComponent implements OnInit {
 
-  dataSource: any[] = [{ id: "1", rdvName: "LeRDV", orga: "Jira", guessList: "invités", statut: "open", askToParticipate: "string" }];
+  dataSource$: Observable<IRdv[]> = of([{ id: "1", rdvName: "LeRDV", orga: "Jira", guessList: ["invités"], statut: "open", askToParticipate: "string" }]);
   displayedColumns: string[] = ['id', 'rdvName', 'orga', 'guessList', 'statut', 'askToParticipate'];
 
   id: string;
@@ -20,12 +22,10 @@ export class PlanningInfosComponent implements OnInit {
     this.route.paramMap.subscribe(data => {
       this.id = data.get("id") as string;
 
-      console.log(this.id);
+      console.log("id", this.id);
 
       // Utilisez ici le service pour obtenir les données
-      this.rdvService.getRdvsForDate(this.id).subscribe(rdvs => {
-        this.dataSource = rdvs;
-      });
+      this.dataSource$ = this.rdvService.getRdvsForDate(this.id);
     });
   }
 }

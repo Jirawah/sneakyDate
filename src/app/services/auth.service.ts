@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 export class AuthService {
   private apiUrl = "http://localhost:3000";
   private authToken: string | null = null;
-  isLogged = false;
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject (!!sessionStorage.getItem('user'));
 
   // Méthode pour définir le token (vous pouvez appeler cette méthode après l'authentification)
   setToken(token: string) {
@@ -46,7 +46,7 @@ export class AuthService {
   //       const jsonToString = JSON.stringify(response);
   //       window.sessionStorage.setItem('user', jsonToString);
   //     },
-  //     error(err) {
+  //     error(err) 
   //       console.log("Après l'appel HTTP avec erreur", err);
   //     },
   //     complete() {
@@ -79,7 +79,7 @@ export class AuthService {
     });
   }
 
-  isLogged(): BehaviorSubject<boolean> {
+  checkIsLogged(): BehaviorSubject<boolean> {
     const isLogged = new BehaviorSubject(!!window.sessionStorage.getItem("user"));
     return isLogged;
   }
@@ -120,7 +120,7 @@ export class AuthService {
 
   getUserIdFromToken(): number | null {
     // Récupérez le token JWT depuis le stockage local (ou d'où vous le stockez)
-    const token = sessionStorage.getItem("token"); // Assurez-vous d'ajuster la clé selon votre implémentation
+    const token = sessionStorage.getItem('user'); // Assurez-vous d'ajuster la clé selon votre implémentation
 
     if (token) {
       try {

@@ -10,13 +10,13 @@ import { __values } from 'tslib';
 })
 
 export class HeaderComponent {
-  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isLogged$ = this.authService.isLogged$;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit () {
-    this.isLogged$ = this.authService.isLogged();
-  }
+    
+      }
 
   logout () {
     window.sessionStorage.clear();

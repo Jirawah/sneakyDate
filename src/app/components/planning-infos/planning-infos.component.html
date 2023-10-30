@@ -5,11 +5,11 @@
 
 <!-- Tableau des RDVs (salons) -->
 <h3>Liste des salons</h3>
-<table mat-table [dataSource]="dataSource">
+<table mat-table *ngIf="dataSource$ | async as dataSource" [dataSource]="dataSource">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>Identifiant</th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.rdv_id }}</td>
   </ng-container>
 
   <!-- Nom du RDV Column -->

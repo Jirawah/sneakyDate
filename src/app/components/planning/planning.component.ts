@@ -30,7 +30,7 @@ export class PlanningComponent implements OnInit {
         img,
         rdvName: 'Nom du RDV',
         orga: 'Organisateur',
-        guestList: 'Liste des invités',
+        guestList: ['Liste des invités'],
         statut: 'FULL/OPEN',
         askToParticipate: "Envoie une demande à l'organisateur",
       });
