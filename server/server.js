@@ -200,7 +200,7 @@ app.post("/login", (req, res) => {
 
       const secret = new TextEncoder().encode(JWT_SECRET);
       // Générez un JWT
-      const token = await new jose.SignJWT({ id: user.member_id })
+      const token = await new jose.SignJWT({ memberId: user.member_id })
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('4h')
         .sign(secret)
@@ -218,6 +218,31 @@ app.post("/login", (req, res) => {
   //   return res.status(500).json({ error: "Erreur serveur" });
   // }
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get("/members/:id", (req, res) => {
+  const memberId = req.params.id; // Récupérez l'ID du membre à partir de la route
+
+  // Utilisez l'ID pour interagir avec votre base de données et obtenir les informations du membre
+  // Par exemple, vous pouvez utiliser la fonction getUserById que vous avez définie précédemment
+
+  getUserById(memberId, (err, user) => {
+    if (err) {
+      console.error("Erreur lors de la récupération des données du membre :", err);
+      res.status(500).send("Erreur interne du serveur");
+      return;
+    }
+
+    if (user) {
+      // Si vous avez réussi à obtenir les données du membre, renvoyez-les au client
+      console.log(user);
+      res.json(user[0]);
+    } else {
+      // Si le membre avec l'ID spécifié n'a pas été trouvé, renvoyez une réponse appropriée (par exemple, 404 Not Found)
+      res.status(404).send("Membre non trouvé");
+    }
+  });
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // app.post('/register', async (req, res) => {
 //     const { memberName, email, password } = req.body;
 
@@ -264,6 +289,32 @@ app.get("/cardbox/:cardbox_id", (req, res) => {
       res.json(results[0]); // renvoyer le premier résultat (puisqu'il devrait y avoir un seul enregistrement correspondant)
     } else {
       res.status(404).send("Cardbox not found");
+    }
+  });
+});
+
+app.get("/members/by-username/:username", (req, res) => {
+  const username = req.params.username; // Récupérez le nom d'utilisateur depuis la route
+
+  // Utilisez le nom d'utilisateur pour interagir avec votre base de données et obtenir les informations du membre
+  // Vous pouvez utiliser une requête SQL pour cela
+
+  // Exemple de requête SQL (utilisez votre propre schéma de base de données)
+  const query = "SELECT * FROM member WHERE memberName = ?";
+
+  connection.query(query, [username], (err, results) => {
+    if (err) {
+      console.error("Erreur lors de la récupération des données du membre :", err);
+      res.status(500).send("Erreur interne du serveur");
+      return;
+    }
+
+    if (results.length > 0) {
+      // Si vous avez réussi à obtenir les données du membre, renvoyez-les au client
+      res.json(results[0]); // renvoyer le premier résultat (puisqu'il devrait y avoir un seul enregistrement correspondant)
+    } else {
+      // Si le membre avec le nom d'utilisateur spécifié n'a pas été trouvé, renvoyez une réponse appropriée (par exemple, 404 Not Found)
+      res.status(404).send("Membre non trouvé");
     }
   });
 });

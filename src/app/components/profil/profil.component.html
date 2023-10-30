@@ -1,10 +1,17 @@
 <div class="profile-container">
     <h2>Profil de {{ memberName }}</h2>
   
-    <div class="profile-info">
-      <p><strong>Pseudonyme :</strong> {{ memberName }}</p>
-      <p><strong>Email :</strong> {{ email }}</p>
-    </div>
+    <form>
+      <mat-form-field>
+        <mat-label>Pseudonyme</mat-label>
+        <input matInput [(ngModel)]="memberName" name="memberName" placeholder="Pseudonyme">
+      </mat-form-field>
   
-    <button mat-raised-button (click)="editProfile()">Modifier le profil</button>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" placeholder="Email">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" (click)="editProfile()">Modifier le profil</button>
+    </form>
   </div>

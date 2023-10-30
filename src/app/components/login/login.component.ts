@@ -30,20 +30,58 @@ export class LoginComponent implements OnInit {
   login() {
     console.log("Avant l'appel HTTP");
     this.messageService.clearMessage();
-
+  
     // Vérifiez si les valeurs email et password sont définies
     if (!this.email || !this.password) {
       this.message = "Veuillez entrer l'email et le mot de passe.";
       return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
     }
-
-    this.authService.login(this.email, this.password);
-     
-    if (window.sessionStorage.getItem('user')) {
-      this.router.navigate(['/profil']);
-    }
+  
+    // Utilisez le service d'authentification pour gérer la connexion
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        if (response.memberName) {
+          // La connexion a réussi, vous pouvez maintenant naviguer vers la page de profil
+          this.router.navigate(['/profil', response.memberName]);
+        } else {
+          // La connexion a échoué, affichez un message d'erreur si nécessaire
+          this.message = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
+        }
+      },
+      error: (err) => {
+        // Gérer l'erreur ici
+        console.error('Erreur lors de la connexion:', err);
+        // Affichez un message d'erreur à l'utilisateur ou effectuez d'autres actions
+      },
+      complete: () => {
+        // Code à exécuter lorsque l'observable est terminé (peut être laissé vide)
+      }
+    });
   }
 }
+  
+//   login() {
+//     console.log("Avant l'appel HTTP");
+//     this.messageService.clearMessage();
+  
+//     // Vérifiez si les valeurs email et password sont définies
+//     if (!this.email || !this.password) {
+//       this.message = "Veuillez entrer l'email et le mot de passe.";
+//       return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
+//     }
+  
+//     // Utilisez le service d'authentification pour gérer la connexion
+//     this.authService.login(this.email, this.password).subscribe((response) => {
+//       if (response.memberName) {
+//         // La connexion a réussi, vous pouvez maintenant naviguer vers la page de profil
+//         this.router.navigate(['/profil', response.memberName]);
+//       } else {
+//         // La connexion a échoué, affichez un message d'erreur si nécessaire
+//         this.message = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
+//       }
+//     });
+//   }
+// }
 
 // .pipe(
 //   catchError(error => {

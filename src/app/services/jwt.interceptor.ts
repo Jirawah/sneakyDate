@@ -5,7 +5,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
 export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     // Récupérez le token du localStorage
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
 
     if (token) {
       // Clonez la requête et ajoutez l'en-tête d'autorisation

@@ -16,7 +16,7 @@ import { PlanningComponent } from './components/planning/planning.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -35,6 +35,7 @@ import { RegistrationService } from './services/registration.service';
 import { HeaderComponent } from './shared/header/header.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfilComponent } from './components/profil/profil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CardboxService } from './services/cardbox.service';
 import { JwtInterceptor } from './services/jwt.interceptor';
@@ -47,7 +48,8 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     PlanningRdvComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ProfilComponent,
   ],
   imports: [
     MatCardModule,
@@ -71,7 +73,8 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     RegistrationService,
     MessageService,
     CardboxService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [
     AppComponent

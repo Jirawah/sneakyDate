@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProfilComponent } from './components/profil/profil.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'profil/:pseudonyme',
+    component: ProfilComponent,
   },
   //mettre les routes au dessus de la route redirection 
   {

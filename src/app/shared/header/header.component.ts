@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { __values } from 'tslib';
 
 @Component({
@@ -9,14 +10,17 @@ import { __values } from 'tslib';
 })
 
 export class HeaderComponent {
-  isLogged$: Observable<boolean>;
-  isLogged = false;
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit () {
-    of(window.sessionStorage.getItem('user')).subscribe(value => this.isLogged = value !== null);
+    this.isLogged$ = this.authService.isLogged();
   }
 
   logout () {
+    window.sessionStorage.clear();
+    this.isLogged$.next(false);
     console.log('Déconnecter')
   }
 }
