@@ -23,17 +23,31 @@ const authenticateJWT = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(" ")[1];
 
-    jwt.verify(token, JWT_SECRET, (err, user) => {
-      if (err) {
-        return res.sendStatus(403);
-      }
+    try {
+      const secret = new TextEncoder().encode(JWT_SECRET);
+      const decoded = jose.JWT.verify(token, secret);
 
-      req.user = user;
+      req.user = decoded;
+      console.log(req.user, decoded);
       next();
-    });
+    } catch (err) {
+      console.error("JWT verification error:", err.message);
+      return res.sendStatus(403);
+    }
   } else {
     res.sendStatus(401);
   }
+  //   jwt.verify(token, JWT_SECRET, (err, user) => {
+  //     if (err) {
+  //       return res.sendStatus(403);
+  //     }
+
+  //     req.user = user;
+  //     next();
+  //   });
+  // } else {
+  //   res.sendStatus(401);
+  // }
 };
 
 app.use(
@@ -268,6 +282,53 @@ app.get("/members/:id", (req, res) => {
     }
   });
 });
+
+app.put("/members/:id", (req, res) => {
+  const member_id = req.params.id;
+  const memberName = req.body.memberName;
+  const email = req.body.email;
+  console.log('memberId, memberName, email', req.body, member_id, memberName, email);
+  // if (req.user.member_id !== Number(member_id)) {
+  //   return res.status(401).send(err);
+  // }
+
+  const query = "UPDATE member SET memberName = ?, email = ? WHERE member_id = ?";
+
+  connection.query(query, [memberName, email, member_id], (err, result) => {
+    if (err) {
+      console.error("Erreur lors de la mise à jour des données du membre:", err);
+      res.status(500).send(err);
+      return;
+    }
+
+    if (result.affectedRows > 0) {
+      res.status(200).send(result);
+    } else {
+      res.status(404).send(err);
+    }
+  });
+});
+// app.put("/members/:id", authenticateJWT, (req, res) => {
+//   const memberId = req.params.id;
+//   const { memberName, email } = req.body;
+
+//   const query = "UPDATE member SET memberName = ?, email = ? WHERE member_id = ?";
+  
+//   connection.query(query, [memberName, email, memberId], (err, result) => {
+//     if (err) {
+//       console.error("Erreur lors de la mise à jour des données du membre:", err);
+//       res.status(500).send("Erreur interne du serveur");
+//       return;
+//     }
+
+//     if (result.affectedRows > 0) {
+//       res.status(200).send('Profil mis à jour avec succès');
+//     } else {
+//       res.status(404).send('Membre non trouvé');
+//     }
+//   });
+// });
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // app.post('/register', async (req, res) => {
 //     const { memberName, email, password } = req.body;
