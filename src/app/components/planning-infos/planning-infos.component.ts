@@ -11,9 +11,9 @@ import { Observable, of } from 'rxjs';
 })
 export class PlanningInfosComponent implements OnInit {
 
-  dataSource$: Observable<IRdv[]> = of([{ id: "1", rdvName: "LeRDV", orga: "Jira", guessList: ["invités"], statut: "open", askToParticipate: "string" }]);
+  dataSource$: Observable<IRdv[]> = of([{ id: "ERRORDB", rdvName: "ERRORDB", orga: "ERRORDB", guessList: ["invités"], statut: "open", askToParticipate: "string" }]);
   displayedColumns: string[] = ['id', 'rdvName', 'orga', 'guessList', 'statut', 'askToParticipate'];
-
+  maxGuestLimit = 15; 
   id: string;
 
   constructor(private route: ActivatedRoute, private rdvService: RdvService) { }

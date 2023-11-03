@@ -4,7 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mysql from "mysql2";
 import bcrypt from "bcrypt";
-import * as jose from 'jose'
+import * as jose from 'jose';
+import cron from 'node-cron';
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -12,6 +13,13 @@ dotenv.config();
 process.on("uncaughtException", (err) => {
   console.error("Erreur non gérée :", err);
 });
+
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${year}-${month}-${day}`;
+}
 
 const app = express();
 const PORT = 3000;
@@ -75,6 +83,22 @@ connection.connect((err) => {
   if (err) throw err;
   console.log("Connecté à la base de données MySQL!");
 });
+
+// Tâche planifiée pour exécuter tous les jours à minuit
+cron.schedule('0 0 * * *', function() {
+  deleteOldRdvs();
+});
+
+function deleteOldRdvs() {
+const currentDate = new Date();
+const formattedDate = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`;
+
+// Suppression des rdv antérieurs à la date actuelle
+connection.query("DELETE FROM rdv WHERE DATE(date) < ?", [formattedDate], (error, results) => {
+  if (error) throw error;
+  console.log(`Supprimé ${results.affectedRows} rdvs.`);
+});
+}
 
 const getUserByEmail = async function (email, callback) {
   const query = "SELECT * FROM member WHERE email = ?";

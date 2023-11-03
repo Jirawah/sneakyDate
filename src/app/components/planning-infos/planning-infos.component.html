@@ -40,7 +40,7 @@
   <ng-container matColumnDef="askToParticipate">
     <th mat-header-cell *matHeaderCellDef>Demander à participer</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-button *ngIf="element.statut == 'OPEN'">
+      <button mat-button *ngIf="element.statut == 'PUBLIC' && element.guessList < maxGuestLimit">
         Demander
       </button>
     </td>

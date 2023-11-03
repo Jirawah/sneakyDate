@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         if (response.memberName) {
           // La connexion a réussi, vous pouvez maintenant naviguer vers la page de profil
           this.authService.isLogged$.next(true);
-          this.router.navigate(['/profil', response.memberName]);
+          this.router.navigate(['/profil']);
         } else {
           // La connexion a échoué, affichez un message d'erreur si nécessaire
           this.message = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";

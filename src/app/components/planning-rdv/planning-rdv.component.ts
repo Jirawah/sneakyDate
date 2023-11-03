@@ -4,6 +4,7 @@ import { RdvService } from "../../services/rdv.service";
 import { CardboxService } from "../../services/cardbox.service"; // Assurez-vous d'importer le bon chemin
 import { AuthService } from "src/app/services/auth.service";
 import { IRdv } from "src/app/interfaces/rdv.interface";
+import { USER_KEY } from "src/app/consts/storagekeys.const";
 
 @Component({
   selector: "app-planning-rdv",
@@ -59,7 +60,7 @@ export class PlanningRdvComponent implements OnInit {
 
     // Récupérer l'ID utilisateur à partir du token.
     const userId = this.authService.getUserIdFromToken();
-    const userData = sessionStorage.getItem("user");
+    const userData = sessionStorage.getItem(USER_KEY);
 
     // Vérifier si l'ID utilisateur a été trouvé.
     if (userId && userData) {

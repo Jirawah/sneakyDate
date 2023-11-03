@@ -8,7 +8,7 @@
       <button mat-button [routerLink]="['/login']">Se connecter</button>
     </div>
     <div class="nav-buttons" *ngIf="isLogged$ | async">
-      <p>Bonjour imposter</p>
+      <p>Bonjour {{ memberName }}</p>
       <button mat-button [routerLink]="['/profil']">Profil</button>
       <button mat-button (click)="logout()" routerLink="/planning">Déconnexion</button>
     </div>

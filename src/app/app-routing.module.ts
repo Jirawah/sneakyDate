@@ -33,8 +33,9 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profil/:pseudonyme',
+    path: 'profil',
     component: ProfilComponent,
+    canActivate: [AuthGuard]
   },
   //mettre les routes au dessus de la route redirection 
   {

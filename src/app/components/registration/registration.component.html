@@ -21,6 +21,7 @@
     <mat-form-field>
       <mat-label>Mot de passe</mat-label>
       <input
+        (input)="checkPassword()"
         matInput
         type="password"
         [(ngModel)]="password"
@@ -32,6 +33,7 @@
     <mat-form-field>
       <mat-label>Confirmez le mot de passe</mat-label>
       <input
+        (input)="checkPassword()"
         matInput
         type="password"
         [(ngModel)]="confirmPassword"

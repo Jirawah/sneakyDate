@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { JwtService } from "../services/jwt.service";
 import { response } from "express";
 import { Router } from "@angular/router";
+import { USER_KEY } from "../consts/storagekeys.const";
 
 @Injectable({
   providedIn: "root",
@@ -13,7 +14,7 @@ import { Router } from "@angular/router";
 export class AuthService {
   private apiUrl = "http://localhost:3000";
   private authToken: string | null = null;
-  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject (!!sessionStorage.getItem('user'));
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject (!!sessionStorage.getItem(USER_KEY));
 
   // Méthode pour définir le token (vous pouvez appeler cette méthode après l'authentification)
   setToken(token: string) {
@@ -22,7 +23,7 @@ export class AuthService {
 
   // Méthode pour récupérer le token
   getToken(): string | null {
-    const user = window.sessionStorage.getItem("user");
+    const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       const userData = JSON.parse(user);
       return userData.token;
@@ -80,7 +81,7 @@ export class AuthService {
   }
 
   checkIsLogged(): BehaviorSubject<boolean> {
-    const isLogged = new BehaviorSubject(!!window.sessionStorage.getItem("user"));
+    const isLogged = new BehaviorSubject(!!window.sessionStorage.getItem(USER_KEY));
     return isLogged;
   }
 
@@ -120,7 +121,7 @@ export class AuthService {
 
   getUserIdFromToken(): number | null {
     // Récupérez le token JWT depuis le stockage local (ou d'où vous le stockez)
-    const token = sessionStorage.getItem('user'); // Assurez-vous d'ajuster la clé selon votre implémentation
+    const token = sessionStorage.getItem(USER_KEY); // Assurez-vous d'ajuster la clé selon votre implémentation
 
     if (token) {
       try {
