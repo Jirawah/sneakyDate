@@ -1,17 +1,38 @@
 <div class="profile-container">
-    <h2>Profil de {{ memberName }}</h2>
-  
-    <form>
-      <mat-form-field>
-        <mat-label>Pseudonyme</mat-label>
-        <input matInput [(ngModel)]="memberName" name="memberName" placeholder="Pseudonyme">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" placeholder="Email">
-      </mat-form-field>
-  
-      <button mat-raised-button color="primary" (click)="editProfile()">Modifier le profil</button>
-    </form>
-  </div>
+  <h2>Profil de {{ memberName }}</h2>
+
+  <form>
+    <!-- Champ pour le pseudonyme -->
+    <mat-form-field>
+      <mat-label>Pseudonyme</mat-label>
+      <input matInput [(ngModel)]="memberName" name="memberName" placeholder="Pseudonyme">
+    </mat-form-field>
+
+    <!-- Champ pour l'email -->
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" name="email" placeholder="Email">
+    </mat-form-field>
+
+    <!-- Bouton pour modifier le profil -->
+    <button mat-raised-button color="primary" (click)="editProfile()">Modifier le profil</button>
+  </form>
+
+  <!-- Ajout du formulaire de changement de mot de passe ici -->
+  <form>
+    <!-- Champ pour l'ancien mot de passe -->
+    <mat-form-field>
+      <mat-label>Ancien mot de passe</mat-label>
+      <input matInput [(ngModel)]="oldPassword" name="oldPassword" type="password" placeholder="Ancien mot de passe">
+    </mat-form-field>
+
+    <!-- Champ pour le nouveau mot de passe -->
+    <mat-form-field>
+      <mat-label>Nouveau mot de passe</mat-label>
+      <input matInput [(ngModel)]="newPassword" name="newPassword" type="password" placeholder="Nouveau mot de passe">
+    </mat-form-field>
+
+    <!-- Bouton pour changer le mot de passe -->
+    <button mat-raised-button color="warn" (click)="changePassword()">Changer le mot de passe</button>
+  </form>
+</div>

@@ -39,6 +39,14 @@ export class ProfileService {
     // Utilisez HttpClient pour effectuer une requête PUT pour mettre à jour les informations du membre
     return this.http.put(url, updatedInfo);
   }
+
+  // changePassword(oldPassword: string, newPassword: string) {
+  //   return this.http.post('/change-password', { oldPassword, newPassword });
+  // }
+  changePassword(payload: any) {
+    // Assurez-vous que l'URL est correcte
+    return this.http.post(`${this.apiUrl}/change-password`, payload);
+  }
 }
 
 

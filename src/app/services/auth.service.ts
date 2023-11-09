@@ -4,7 +4,6 @@ import { catchError, tap } from "rxjs/operators";
 import { BehaviorSubject, of, throwError } from "rxjs"; // Importez throwError
 import { Observable } from "rxjs";
 import { JwtService } from "../services/jwt.service";
-import { response } from "express";
 import { Router } from "@angular/router";
 import { USER_KEY } from "../consts/storagekeys.const";
 
@@ -33,7 +32,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    // private jwtService: JwtService,
+    private jwtService: JwtService,
     private router: Router
   ) {}
 
@@ -119,30 +118,61 @@ export class AuthService {
   //   return null;
   // }
 
-  getUserIdFromToken(): number | null {
-    // Récupérez le token JWT depuis le stockage local (ou d'où vous le stockez)
-    const token = sessionStorage.getItem(USER_KEY); // Assurez-vous d'ajuster la clé selon votre implémentation
-
-    if (token) {
-      try {
-        // Parsez le token JWT pour extraire l'identifiant du membre (exemple)
-        const tokenPayload = JSON.parse(atob(token.split(".")[1]));
-        const memberId = tokenPayload.memberId; // L'attribut memberId doit être défini dans le token
-
-        if (memberId) {
-          return memberId;
-        }
-      } catch (error) {
-        console.error(
-          "Erreur lors de l'extraction de l'identifiant du membre à partir du token:",
-          error
-        );
+  async getUserIdFromToken(): Promise<number | null> {
+    const token = sessionStorage.getItem(USER_KEY);
+    if (!token) return null;
+  
+    try {
+      const decodedToken = await this.jwtService.verifyToken(token);
+      if ('userId' in decodedToken) {
+        return decodedToken.userId;
       }
+    } catch (error) {
+      console.error("Erreur lors de la vérification du token JWT:", error);
     }
-
-    return null; // Retournez null si le token est invalide ou s'il n'y a pas d'identifiant du membre
+  
+    return null;
   }
-}
+  // getUserIdFromToken(): number | null {
+  //   const token = sessionStorage.getItem(USER_KEY);
+  //   if (!token) return null;
+  
+  //   try {
+  //     // Supposons que JwtService a une méthode 'verifyToken' qui vérifie et décode le token
+  //     const decodedToken = this.jwtService.verifyToken(token);
+  //     if (typeof decodedToken === 'object' && decodedToken !== null && 'userId' in decodedToken) {
+  //        return decodedToken['userId'];
+  //     }
+  //   } catch (error) {
+  //     console.error("Erreur lors de la vérification du token JWT:", error);
+  //   }
+  
+  //   return null;
+  // }
+  // getUserIdFromToken(): number | null {
+  //   // Récupérez le token JWT depuis le stockage local (ou d'où vous le stockez)
+  //   const token = sessionStorage.getItem(USER_KEY); // Assurez-vous d'ajuster la clé selon votre implémentation
+
+  //   if (token) {
+  //     try {
+  //       // Parsez le token JWT pour extraire l'identifiant du membre (exemple)
+  //       const tokenPayload = JSON.parse(atob(token.split(".")[1]));
+  //       const memberId = tokenPayload.memberId; // L'attribut memberId doit être défini dans le token
+
+  //       if (memberId) {
+  //         return memberId;
+  //       }
+  //     } catch (error) {
+  //       console.error(
+  //         "Erreur lors de l'extraction de l'identifiant du membre à partir du token:",
+  //         error
+  //       );
+  //     }
+  //   }
+
+  //   return null; // Retournez null si le token est invalide ou s'il n'y a pas d'identifiant du membre
+  // }
+};
 
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';

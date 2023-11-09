@@ -39,6 +39,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CardboxService } from './services/cardbox.service';
 import { JwtInterceptor } from './services/jwt.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     FormsModule,
     MatSelectModule,
     MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthGuard,

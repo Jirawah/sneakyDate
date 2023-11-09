@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"; // Importez les éléments nécessaires
 import { MessageService } from "../../services/message.service";
-import { HttpClient } from "@angular/common/http"; // Importez HttpClient
 import { AuthService } from "src/app/services/auth.service";
 import { Router } from "@angular/router";
 
@@ -10,56 +10,120 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
-  message: string | null = null;
+  loginForm: FormGroup; // Déclarez loginForm de type FormGroup
+  loginError: string | null = null;
 
   constructor(
+    private fb: FormBuilder, // Ajoutez FormBuilder au constructeur
     private messageService: MessageService,
     private authService: AuthService,
-    private router: Router,
-    private http: HttpClient // Injectez HttpClient
-  ) {}
-
-  ngOnInit() {
-    this.messageService.message$.subscribe((msg) => {
-      this.message = msg;
+    private router: Router
+  ) {
+    // Initialisez le groupe de formulaires avec FormBuilder
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]], // Utilisez Validators pour la validation
+      password: ['', Validators.required]
     });
   }
 
+  ngOnInit() {
+    this.messageService.message$.subscribe((msg) => {
+      this.loginError = msg;
+    });
+  }
+
+  // Modifiez la méthode de connexion pour utiliser FormGroup
   login() {
-    console.log("Avant l'appel HTTP");
+    this.loginError = null; // Réinitialisez l'erreur de connexion
     this.messageService.clearMessage();
-  
-    // Vérifiez si les valeurs email et password sont définies
-    if (!this.email || !this.password) {
-      this.message = "Veuillez entrer l'email et le mot de passe.";
-      return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
+
+    // Utilisez le groupe de formulaires pour récupérer les valeurs
+    const { email, password } = this.loginForm.value;
+
+    // Maintenant, utilisez email et password au lieu de this.email et this.password
+    if (this.loginForm.invalid) {
+      this.loginError = "Veuillez entrer un email et un mot de passe valides.";
+      return;
     }
-  
-    // Utilisez le service d'authentification pour gérer la connexion
-    this.authService.login(this.email, this.password).subscribe({
+
+    this.authService.login(email, password).subscribe({
       next: (response) => {
         if (response.memberName) {
-          // La connexion a réussi, vous pouvez maintenant naviguer vers la page de profil
           this.authService.isLogged$.next(true);
-          this.router.navigate(['/profil']);
+          this.router.navigate([`/profil`]);
         } else {
-          // La connexion a échoué, affichez un message d'erreur si nécessaire
-          this.message = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
+          this.loginError = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
         }
       },
       error: (err) => {
-        // Gérer l'erreur ici
         console.error('Erreur lors de la connexion:', err);
-        // Affichez un message d'erreur à l'utilisateur ou effectuez d'autres actions
-      },
-      complete: () => {
-        // Code à exécuter lorsque l'observable est terminé (peut être laissé vide)
+        this.loginError = "Email ou mot de passe incorrecte";
       }
     });
   }
 }
+// import { Component, OnInit } from "@angular/core";
+// import { MessageService } from "../../services/message.service";
+// import { HttpClient } from "@angular/common/http"; // Importez HttpClient
+// import { AuthService } from "src/app/services/auth.service";
+// import { Router } from "@angular/router";
+
+// @Component({
+//   selector: "app-login",
+//   templateUrl: "./login.component.html",
+//   styleUrls: ["./login.component.scss"],
+// })
+// export class LoginComponent implements OnInit {
+//   email: string;
+//   password: string;
+//   message: string | null = null;
+
+//   constructor(
+//     private messageService: MessageService,
+//     private authService: AuthService,
+//     private router: Router,
+//     private http: HttpClient // Injectez HttpClient
+//   ) {}
+
+//   ngOnInit() {
+//     this.messageService.message$.subscribe((msg) => {
+//       this.message = msg;
+//     });
+//   }
+
+//   login() {
+//     console.log("Avant l'appel HTTP");
+//     this.messageService.clearMessage();
+  
+//     // Vérifiez si les valeurs email et password sont définies
+//     if (!this.email || !this.password) {
+//       this.message = "Veuillez entrer l'email et le mot de passe.";
+//       return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
+//     }
+  
+//     // Utilisez le service d'authentification pour gérer la connexion
+//     this.authService.login(this.email, this.password).subscribe({
+//       next: (response) => {
+//         if (response.memberName) {
+//           // La connexion a réussi, vous pouvez maintenant naviguer vers la page de profil
+//           this.authService.isLogged$.next(true);
+//           this.router.navigate(['/profil']);
+//         } else {
+//           // La connexion a échoué, affichez un message d'erreur si nécessaire
+//           this.message = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
+//         }
+//       },
+//       error: (err) => {
+//         // Gérer l'erreur ici
+//         console.error('Erreur lors de la connexion:', err);
+//         // Affichez un message d'erreur à l'utilisateur ou effectuez d'autres actions
+//       },
+//       complete: () => {
+//         // Code à exécuter lorsque l'observable est terminé (peut être laissé vide)
+//       }
+//     });
+//   }
+// }
   
 //   login() {
 //     console.log("Avant l'appel HTTP");

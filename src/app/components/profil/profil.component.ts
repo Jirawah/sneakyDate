@@ -4,6 +4,7 @@ import { AuthService } from "../../services/auth.service";
 import { ActivatedRoute } from "@angular/router";
 import { catchError } from "rxjs/operators";
 import { of } from "rxjs";
+import { USER_KEY } from "src/app/consts/storagekeys.const";
 
 @Component({
   selector: "app-profil",
@@ -13,6 +14,8 @@ import { of } from "rxjs";
 export class ProfilComponent implements OnInit {
   memberName: string;
   email: string;
+  oldPassword: string;
+  newPassword: string;
 
   constructor(
     private profileService: ProfileService,
@@ -82,5 +85,28 @@ export class ProfilComponent implements OnInit {
         },
       });
     }
+  }
+
+  changePassword() {
+    console.log("initier le changement de mot de passe");
+    if (!this.oldPassword || !this.newPassword) {
+      console.log("Vous devez remplir tous les champs.");
+    }
+    
+    const memberId = this.getMemberIdFromToken();
+    const payload = { oldPassword: this.oldPassword, newPassword: this.newPassword, memberId };
+    
+    this.profileService.changePassword(payload).subscribe({
+      next: (response) => {
+        console.log(response);
+        console.log("Mot de passe changé avec succès !");
+        // Optionnel : réinitialiser les champs après changement de mot de passe
+        this.oldPassword = '';
+        this.newPassword = '';
+      },
+      error: (error) => {
+        console.error("Erreur lors du changement de mot de passe:", error);
+      }
+    });
   }
 }

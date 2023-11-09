@@ -60,14 +60,6 @@ export class PlanningComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
 // import { Component, OnInit } from "@angular/core";
 // import { theDate } from "../models/thedate.models";
 // import { Router } from '@angular/router';
