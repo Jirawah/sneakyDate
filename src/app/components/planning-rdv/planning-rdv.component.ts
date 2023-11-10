@@ -58,33 +58,38 @@ export class PlanningRdvComponent implements OnInit {
   onSubmit() {
     console.log("Cardbox ID:", this.cardboxId);
 
-    // Récupérer l'ID utilisateur à partir du token.
-    const userId = this.authService.getUserIdFromToken();
-    const userData = sessionStorage.getItem(USER_KEY);
+    // Récupérer l'ID utilisateur à partir du token de manière asynchrone.
+    this.authService.getUserIdFromToken().then(userId => {
+      // Vérifier si l'ID utilisateur a été trouvé.
+      if (userId) {
+        const userData = sessionStorage.getItem(USER_KEY);
+        if (userData) {
+          const memberName = JSON.parse(userData).memberName;
+          
+          const rdvDataToSend = {
+            ...this.rdv,
+            member_id: userId,
+            orga: memberName,
+            cardbox_id: this.cardboxId,
+          };
+          
+          console.log("rdvDataToSend", rdvDataToSend);
 
-    // Vérifier si l'ID utilisateur a été trouvé.
-    if (userId && userData) {
-      // this.rdv.member_id = userId;
-      const memberName = JSON.parse(userData).memberName;
-      // this.rdv,
-
-      const rdvDataToSend = {
-        ...this.rdv,
-        member_id: userId,
-        orga: memberName,
-        cardbox_id: this.cardboxId,
-      };
-      console.log("rdvDataToSend", userId, rdvDataToSend);
-
-      this.rdvService.createRdv(rdvDataToSend).subscribe({
-        next: () => {
-          this.router.navigate([`/planning-infos/${this.id}`]);
-        },
-        error: (err) => {
-          console.error("Erreur lors de la connexion:", err);
-        },
-      });
-    }
+          this.rdvService.createRdv(rdvDataToSend).subscribe({
+            next: () => {
+              this.router.navigate([`/planning-infos/${this.id}`]);
+            },
+            error: (err) => {
+              console.error("Erreur lors de la connexion:", err);
+            },
+          });
+        }
+      } else {
+        console.error("ID utilisateur non trouvé dans le token");
+      }
+    }).catch(error => {
+      console.error("Erreur lors de la récupération de l'ID utilisateur depuis le token:", error);
+    });
   }
 }
 

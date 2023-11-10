@@ -1,29 +1,63 @@
-<h1>Planning</h1>
+
+<div id="planning-tittle">
+  <h1 class="mat-typography">Planning</h1>
+</div>
 
 <div class="container">
-  <mat-grid-list cols="7" rowHeight="1:1">
-    <mat-grid-tile
-      *ngFor="let thedate of dateList"
-      [routerLink]="['/planning-infos', thedate.id]"
-    >
+  <mat-grid-list cols="7" rowHeight="1:1.5" gutterSize="70px">
+    <mat-grid-tile *ngFor="let thedate of dateList" [routerLink]="['/planning-infos', thedate.id]">
       <mat-card fxLayout="column">
-        <mat-card-header fxFlex="46px">
-          <mat-card-title>{{ thedate.date }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <img
-            mat-card-image
-            width="130"
-            height="160"
-            src=" {{ thedate.img }} "
-            alt="carater picture 1"
-          />
-          <h2 style="text-align: center">{{ thedate.id }}Voir les RDV</h2>
+        <mat-card-content class="card-content">
+          <!-- Début du conteneur pour l'image décorative et l'image du caractère -->
+          <div class="image-decor-container">
+            <!-- Ajoutez votre image décorative ici -->
+            <!-- L'image existante du caractère -->
+            <img mat-card-image [src]="thedate.img" class="character-img" alt="carater picture 1">
+            <img id="effect" src="../../../assets/style-effect-behind-car-pic/Mask-group.png" class="card-decor" alt="Décor">
+          </div>
+          <!-- En-tête de la carte pour la date -->
+          <mat-card-header fxFlex="46px">
+            <mat-card-title>{{ thedate.date }}</mat-card-title>
+          </mat-card-header>
+          <!-- Texte pour "Voir les RDV" -->
+          <h2 class="see-rdv-buton" style="text-align: center">{{ thedate.id }}Voir les RDV</h2>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
+<!-- <h1>Planning</h1>
+
+<video autoplay muted loop id="myVideo">
+  <source src="../../../assets/homepage-animation/2023-11-10-01-46-30.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="container">
+  <mat-grid-list cols="7" rowHeight="1:1.2" gutterSize="70px">
+    <mat-grid-tile
+      *ngFor="let thedate of dateList"
+      [routerLink]="['/planning-infos', thedate.id]"
+    >
+      <mat-card fxLayout="column">
+        <mat-card-content>
+          <img
+          mat-card-image
+          width="130"
+          height="160"
+          src=" {{ thedate.img }} "
+          alt="carater picture 1"
+          />
+          <mat-card-header fxFlex="46px">
+            <mat-card-title>{{ thedate.date }}</mat-card-title>
+          </mat-card-header>
+          <h2 style="text-align: center">{{ thedate.id }}Voir les RDV</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div> -->
 
 <!-- 
 <p>{{ theDateList[0].theDate_id }}</p>

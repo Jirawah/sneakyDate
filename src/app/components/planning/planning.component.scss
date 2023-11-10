@@ -1,12 +1,267 @@
-.tittle {
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    text-align: center;
-    justify-content: center;
+// .tittle {
+//     align-items: center;
+//     align-content: center;
+//     align-self: center;
+//     text-align: center;
+//     justify-content: center;
+// }
+
+// .text-center {
+//     display: flex;
+//     justify-content: center;
+// }
+
+// #myVideo {
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
+//     z-index: -1; // pour mettre la vidéo en arrière-plan
+//   }
+
+//   // Assurez-vous que le contenu de votre composant se superpose à la vidéo
+//   .content {
+//     position: relative;
+//     z-index: 1;
+//   }
+
+// mat-card {
+//   background-color: #292929;
+//   border: 7px solid #000000;
+//   border-radius: 20px;
+//   color: #FFFFFF;
+//   font-family: 'Inter', sans-serif;
+//   overflow: hidden;
+//   text-align: center;
+//   transition: transform 0.3s ease-in-out;
+
+//   &:hover {
+//     transform: scale(1.05);
+//   }
+// }
+
+// mat-card-header {
+//   background-color: #2CEAC6;
+//   padding: 10px 0;
+//   font-size: 16px;
+//   font-weight: bold;
+//   color: #0A3C33;
+//   border-bottom: 5px solid #000000;
+// }
+
+// mat-card-content {
+//   background: linear-gradient(145deg, #2CEAC6, #4F5252);
+//   padding: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 10px;
+// }
+
+// img[mat-card-image] {
+//   width: 130px;
+//   height: 160px;
+//   margin: 10px 0;
+// }
+
+// mat-card-title {
+//   font-size: 18px;
+//   margin: 5px 0;
+// }
+
+// Styles de base pour la vidéo de fond
+// #myVideo {
+//     position: fixed;
+//     right: 0;
+//     bottom: 0;
+//     min-width: 100%;
+//     min-height: 100%;
+//     z-index: -1; // pour mettre la vidéo en arrière-plan
+//   }
+
+//   // Styles pour les cartes
+//   mat-card {
+//     max-width: 200px; // Ajustez selon la largeur souhaitée
+//     background-color: #292929;
+//     border: 7px solid #000000;
+//     border-radius: 20px;
+//     color: #FFFFFF;
+//     font-family: 'Inter', sans-serif;
+//     transition: transform 0.3s ease-in-out;
+
+//     &:hover {
+//       transform: scale(1.05);
+//     }
+
+//     mat-card-header {
+//       background-color: #2CEAC6;
+//       color: #0A3C33;
+//       padding: 10px;
+//       border-bottom: 5px solid #000000;
+//       font-size: 16px;
+//       font-weight: bold;
+//     }
+
+//     mat-card-content {
+//       padding: 10px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       gap: 10px;
+//     }
+
+//     img {
+//       width: auto; // Ou utilisez une largeur fixe si nécessaire
+//       max-height: 150px; // Ajustez selon la hauteur souhaitée
+//       object-fit: contain; // Gardez l'aspect de l'image
+//       border: 4px solid #000000;
+//       border-radius: 10px;
+//       background: #2CEAC6;
+//     }
+
+//     h2 {
+//       background-color: #4F5252;
+//       color: white;
+//       padding: 8px 16px;
+//       border: 4px solid #000000;
+//       border-radius: 10px;
+//       font-size: 14px; // Ajustez selon la taille souhaitée
+//       width: 100%;
+//       box-sizing: border-box;
+//     }
+//   }
+
+//   // Assurez-vous que le contenu de votre composant se superpose à la vidéo
+//   .content {
+//     position: relative;
+//     z-index: 1;
+//   }
+// Assurez-vous que le contenu de votre composant se superpose à la vidéo
+.content {
+  position: relative;
+  z-index: 1;
 }
 
-.text-center {
-    display: flex;
+// Styles pour le conteneur de grille
+.container {
+  padding-left: 40px; // Espace autour de la grille entière
+  padding-right: 60px;
+}
+
+// Styles pour la grille
+mat-grid-list {
+  width: 100%;
+  height: 100%;
+}
+
+// Styles pour les tuiles de grille
+mat-grid-tile {
+  background: #7b7f81;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px; // Espace à l'intérieur de chaque tuile
+  border: 4px solid #000000;
+  border-radius: 14px;
+}
+
+// Styles pour les cartes
+mat-card {
+  padding: 6px;
+  max-width: 500px; // Ajustez selon la largeur souhaitée
+  background-color: #292929;
+  border: 3px solid #000000;
+  border-radius: 14px;
+  color: #ffffff;
+  margin-top: 0px; // Espace entre les cartes verticalement
+
+  mat-card-header {
+    width: 180px;
+    background-color: #2ceac6;
+    color: #0a3c33;
+    padding: 10px;
+    //padding-left: 29px;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
     justify-content: center;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  mat-card-content {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.see-rdv-buton {
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.character-img {
+  width: 180px; // Ou utilisez une largeur fixe si nécessaire
+  max-height: 120px; // Ajustez selon la hauteur souhaitée
+  object-fit: contain; // Gardez l'aspect de l'image
+  position: absolute;
+  z-index: 3;
+}
+
+h2 {
+  background-color: #4f5252;
+  color: white;
+  padding: 8px 16px;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  font-size: 14px; // Ajustez selon la taille souhaitée
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.image-decor-container {
+  position: relative;
+  width: 180px; // La largeur peut être ajustée en fonction de la taille du personnage
+  height: 160px; // La hauteur peut être ajustée en fonction de la taille du personnage
+}
+
+#effect {
+  position: absolute;
+  // Ajustez cette valeur pour déplacer l'image vers le haut
+  // Centrer l'image horizontalement dans le conteneur
+  // Décaler l'image de 50% de sa largeur pour la centrer parfaitement
+  width: 97%; // Ajustez la largeur pour que l'image dépasse des côtés du personnage
+  z-index: 2; // L'image décorative doit être au-dessus de l'image du personnage
+  border: 3px solid #000000;
+  border-radius: 10px;
+  background: #2ceac6;
+}
+
+h1 {
+  font-size: 60px;
+  color: whitesmoke;
+  font-family: 'SimpleMinimalist';
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.mat-typography {
+  font-family: 'SimpleMinimalist', sans-serif;
+}
+
+#planning-tittle {
+  padding-top: 140px;
+  text-align: center;
+  font-family: 'SimpleMinimalist';
+  margin-top: 60px;
+  margin-bottom: 70px;
 }

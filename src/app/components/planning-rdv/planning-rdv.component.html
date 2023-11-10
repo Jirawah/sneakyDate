@@ -1,5 +1,8 @@
-<h2>Créer un RDV pour le jour {{ id }} ({{ displayDate | date:'dd/MM/yyyy' }})</h2>
+<div id="planning-rdv-tittle">
+  <h1 class="mat-typography">Créer un RDV</h1>
+</div>
 
+<h2>Créer un RDV pour le jour {{ id }} ({{ displayDate | date:'dd/MM/yyyy' }})</h2>
 
 <form (ngSubmit)="onSubmit()">
   <mat-form-field>

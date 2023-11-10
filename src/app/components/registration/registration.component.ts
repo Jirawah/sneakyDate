@@ -6,7 +6,7 @@ import { RegistrationService } from "../../services/registration.service";
 @Component({
   selector: "app-register",
   templateUrl: "./registration.component.html",
-  styleUrls: [],
+  styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
   memberName: string;

@@ -117,14 +117,13 @@ export class AuthService {
   //   // }
   //   return null;
   // }
-
   async getUserIdFromToken(): Promise<number | null> {
-    const token = sessionStorage.getItem(USER_KEY);
+    const token = this.getToken();
     if (!token) return null;
   
     try {
       const decodedToken = await this.jwtService.verifyToken(token);
-      if ('userId' in decodedToken) {
+      if (typeof decodedToken === 'object' && decodedToken !== null && 'userId' in decodedToken) {
         return decodedToken.userId;
       }
     } catch (error) {
@@ -133,6 +132,21 @@ export class AuthService {
   
     return null;
   }
+  // async getUserIdFromToken(): Promise<number | null> {
+  //   const token = sessionStorage.getItem(USER_KEY);
+  //   if (!token) return null;
+  
+  //   try {
+  //     const decodedToken = await this.jwtService.verifyToken(token);
+  //     if ('userId' in decodedToken) {
+  //       return decodedToken.userId;
+  //     }
+  //   } catch (error) {
+  //     console.error("Erreur lors de la vérification du token JWT:", error);
+  //   }
+  
+  //   return null;
+  // }
   // getUserIdFromToken(): number | null {
   //   const token = sessionStorage.getItem(USER_KEY);
   //   if (!token) return null;

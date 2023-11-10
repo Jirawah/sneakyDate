@@ -1,15 +1,28 @@
-<nav class="header-nav">
-  <div routerLink="planning">
-    <h1>SneakyDate<br></h1>
-    <h2>AnAmongUsRDVApp</h2>
+<header>
+  <nav class="header-nav">
+    <div routerLink="planning">
+      <h1>SneakyDate<br /></h1>
+      <h2>AnAmongUsRDV</h2>
   </div>
-    <div class="nav-buttons" *ngIf="!(isLogged$ | async)">
-      <button mat-button [routerLink]="['/register']">S'inscrire</button>
-      <button mat-button [routerLink]="['/login']">Se connecter</button>
+  <div class="nav-deco1">
+    <div class="nav-deco2">
+      <div class="nav-buttons" *ngIf="!(isLogged$ | async)">
+        <button mat-button [routerLink]="['/register']" class="nav-btn1">
+          S'inscrire
+        </button>
+        <button mat-button [routerLink]="['/login']" class="nav-btn2">
+          Se connecter
+        </button>
+      </div>
+
+      <div class="nav-buttons" *ngIf="isLogged$ | async">
+        <p>Bonjour {{ memberName }}</p>
+        <button mat-button [routerLink]="['/profil']">Profil</button>
+        <button mat-button (click)="logout()" routerLink="/planning">
+          Déconnexion
+        </button>
+      </div>
     </div>
-    <div class="nav-buttons" *ngIf="isLogged$ | async">
-      <p>Bonjour {{ memberName }}</p>
-      <button mat-button [routerLink]="['/profil']">Profil</button>
-      <button mat-button (click)="logout()" routerLink="/planning">Déconnexion</button>
-    </div>
-  </nav>
+  </div>
+</nav>
+</header>
