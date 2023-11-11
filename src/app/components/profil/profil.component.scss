@@ -1,13 +1,23 @@
 // .testtt {
-//   top: 421px;
-//   left: 552.4px;
-//   right: 551px;
+//   top: 258.5px;
+//   left: 549px;
+//   right: 540px;
 //   padding-bottom: 36px;
 //   position: absolute;
 //   border: 5px solid #ec0c0c;
 //   z-index: 4000;
 //   color: transparent;
 // }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; /* Couverture minimale en largeur */
+  min-height: 100%; /* Couverture minimale en hauteur */
+  width: auto; /* Pour maintenir le rapport d'aspect */
+  height: auto; /* Pour maintenir le rapport d'aspect */
+  z-index: -1; /* Pour s'assurer que le contenu est par-dessus la vidéo */
+}
 
 #video-container {
   border: 5px solid #000000;
@@ -28,8 +38,8 @@
 
 .profile-container {
 
-  // margin-top: 500px;
-
+  //margin-top: 500px; 
+margin-top: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;

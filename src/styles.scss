@@ -13,7 +13,7 @@
   min-height: 100%; /* Couverture minimale en hauteur */
   width: auto; /* Pour maintenir le rapport d'aspect */
   height: auto; /* Pour maintenir le rapport d'aspect */
-  z-index: -1; /* Pour s'assurer que le contenu est par-dessus la vidéo */
+  z-index: -2; /* Pour s'assurer que le contenu est par-dessus la vidéo */
 }
 
 html, body {

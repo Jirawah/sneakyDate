@@ -38,17 +38,30 @@
     }
   }
 
+  // .nav-deco1 {
+  //   background: #7b7f81;
+  // padding-left: 8px;
+  // padding-right: 8px;
+  // padding-top: 12px;
+  // padding-bottom: 12px; // Espace à l'intérieur de chaque tuile
+  // border: 4px solid #000000;
+  // border-radius: 14px;
+  // }
   .nav-deco1 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between; /* Répartit l'espace entre les éléments */
+    align-items: center; /* Alignement vertical des éléments */
     background: #7b7f81;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px; // Espace à l'intérieur de chaque tuile
-  border: 4px solid #000000;
-  border-radius: 14px;
+    padding: 12px 8px; /* Padding uniforme */
+    border: 4px solid #000000;
+    border-radius: 14px;
   }
 
   .nav-deco2 {
+  display: flex;
+  justify-content: space-between; /* Répartit l'espace entre les éléments */
+  align-items: center;
   padding: 6px;
   max-width: 500px; // Ajustez selon la largeur souhaitée
   background-color: #292929;
@@ -64,3 +77,18 @@
     width: 100%;
     z-index: 1000; /* Assure qu'il reste au-dessus des autres éléments */
 }
+
+.bonjour-style {
+  padding: 40px;
+  font-size: 26px;
+  padding-right: 44px;
+}
+
+p {
+  color: #000000;
+  font-weight: 600;
+}
+
+
+
+
