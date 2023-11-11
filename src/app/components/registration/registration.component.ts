@@ -6,7 +6,7 @@ import { RegistrationService } from "../../services/registration.service";
 @Component({
   selector: "app-register",
   templateUrl: "./registration.component.html",
-  styleUrls: ['./registration.component.scss'],
+  styleUrls: ["./registration.component.scss"],
 })
 export class RegistrationComponent {
   memberName: string;
@@ -57,9 +57,9 @@ export class RegistrationComponent {
             }
           },
         });
-      } else {
-        this.errorMessage = "les mots de passe ne sont pas identiques"
-      }
+    } else {
+      this.errorMessage = "les mots de passe ne sont pas identiques";
+    }
   }
 }
 //   register() {

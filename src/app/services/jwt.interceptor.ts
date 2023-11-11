@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
-import { USER_KEY } from '../consts/storagekeys.const';
+import { Injectable } from "@angular/core";
+import {
+  HttpInterceptor,
+  HttpRequest,
+  HttpHandler,
+} from "@angular/common/http";
+import { USER_KEY } from "../consts/storagekeys.const";
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -12,8 +16,8 @@ export class JwtInterceptor implements HttpInterceptor {
       // Clonez la requête et ajoutez l'en-tête d'autorisation
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
     }
 

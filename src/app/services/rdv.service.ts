@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IRdv } from '../interfaces/rdv.interface';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { IRdv } from "../interfaces/rdv.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class RdvService {
-  private apiBaseUrl = 'http://localhost:3000';
+  private apiBaseUrl = "http://localhost:3000";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getRdvsForDate(id: string): Observable<IRdv[]> {
     console.log(id);

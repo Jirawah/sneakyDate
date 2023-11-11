@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   ) {
     // Initialisez le groupe de formulaires avec FormBuilder
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], // Utilisez Validators pour la validation
-      password: ['', Validators.required]
+      email: ["", [Validators.required, Validators.email]], // Utilisez Validators pour la validation
+      password: ["", Validators.required],
     });
   }
 
@@ -52,13 +52,14 @@ export class LoginComponent implements OnInit {
           this.authService.isLogged$.next(true);
           this.router.navigate([`/profil`]);
         } else {
-          this.loginError = "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
+          this.loginError =
+            "La connexion a échoué. Veuillez vérifier vos informations de connexion.";
         }
       },
       error: (err) => {
-        console.error('Erreur lors de la connexion:', err);
+        console.error("Erreur lors de la connexion:", err);
         this.loginError = "Email ou mot de passe incorrecte";
-      }
+      },
     });
   }
 }
@@ -94,13 +95,13 @@ export class LoginComponent implements OnInit {
 //   login() {
 //     console.log("Avant l'appel HTTP");
 //     this.messageService.clearMessage();
-  
+
 //     // Vérifiez si les valeurs email et password sont définies
 //     if (!this.email || !this.password) {
 //       this.message = "Veuillez entrer l'email et le mot de passe.";
 //       return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
 //     }
-  
+
 //     // Utilisez le service d'authentification pour gérer la connexion
 //     this.authService.login(this.email, this.password).subscribe({
 //       next: (response) => {
@@ -124,17 +125,17 @@ export class LoginComponent implements OnInit {
 //     });
 //   }
 // }
-  
+
 //   login() {
 //     console.log("Avant l'appel HTTP");
 //     this.messageService.clearMessage();
-  
+
 //     // Vérifiez si les valeurs email et password sont définies
 //     if (!this.email || !this.password) {
 //       this.message = "Veuillez entrer l'email et le mot de passe.";
 //       return; // Sortez de la fonction pour éviter l'appel HTTP incorrect
 //     }
-  
+
 //     // Utilisez le service d'authentification pour gérer la connexion
 //     this.authService.login(this.email, this.password).subscribe((response) => {
 //       if (response.memberName) {

@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class MessageService {
-  private messageSubject = new BehaviorSubject<string|null>(null);
+  private messageSubject = new BehaviorSubject<string | null>(null);
   message$ = this.messageSubject.asObservable();
 
   setMessage(message: string) {

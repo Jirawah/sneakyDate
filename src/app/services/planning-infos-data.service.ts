@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { theDate } from '../models/thedate.models';
+import { Injectable } from "@angular/core";
+import { theDate } from "../models/thedate.models";
 
 @Injectable({
-  providedIn: 'root' // disponible au niveau global
+  providedIn: "root", // disponible au niveau global
 })
 export class PlanningInfosDataService {
   // Définissez les méthodes pour récupérer et stocker les données

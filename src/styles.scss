@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'SimpleMinimalist';
-  src: url('/src/assets/fonts/SimpleMinimalist.otf') format('opentype');
+  font-family: "SimpleMinimalist";
+  src: url("/src/assets/fonts/SimpleMinimalist.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,22 +16,23 @@
   z-index: -2; /* Pour s'assurer que le contenu est par-dessus la vidéo */
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  font-family: 'SimpleMinimalist', sans-serif !important; /* Appliquer la police à tout le contenu */
+  font-family: "SimpleMinimalist", sans-serif !important; /* Appliquer la police à tout le contenu */
 }
 
 /* Surcharge des styles Angular Material pour les h1 */
-.mat-typography .mat-h1, 
+.mat-typography .mat-h1,
 .mat-typography h1,
 h1.mat-h1 {
-  font-family: 'SimpleMinimalist', sans-serif !important; /* Utilisation de !important pour forcer la surcharge */
+  font-family: "SimpleMinimalist", sans-serif !important; /* Utilisation de !important pour forcer la surcharge */
 }
 
 /* Surcharge spécifique pour les titres de la barre d'outils Angular Material */
 .mat-toolbar-title {
-  font-family: 'SimpleMinimalist', sans-serif !important;
+  font-family: "SimpleMinimalist", sans-serif !important;
 }
 
 html {
@@ -46,6 +47,9 @@ html {
   --mdc-outlined-text-field-caret-color: #2ceac6;
   --mdc-outlined-text-field-focus-outline-color: #2ceac6;
   --mdc-outlined-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
+  --mat-badge-background-color: #2ceac6;
+  --mat-select-focused-arrow-color: #2ceac6;
+  --mat-option-selected-state-label-text-color: #2ceac6;
   /* Ajoutez d'autres variables si nécessaire */
 }
 // /* You can add global styles to this file, and also import other style files */

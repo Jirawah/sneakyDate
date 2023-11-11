@@ -40,8 +40,12 @@ export class PlanningRdvComponent implements OnInit {
       // Récupérez la date à partir du service Cardbox
       const cardboxId = +this.id;
       this.cardboxService.getDateByCardboxId(cardboxId).subscribe({
-        next: (response) => {this.displayDate = response.date},
-        error: (err) => {console.error("Erreur lors de la récupération de la date:", err)}
+        next: (response) => {
+          this.displayDate = response.date;
+        },
+        error: (err) => {
+          console.error("Erreur lors de la récupération de la date:", err);
+        },
       });
     });
   }
@@ -59,37 +63,43 @@ export class PlanningRdvComponent implements OnInit {
     console.log("Cardbox ID:", this.cardboxId);
 
     // Récupérer l'ID utilisateur à partir du token de manière asynchrone.
-    this.authService.getUserIdFromToken().then(userId => {
-      // Vérifier si l'ID utilisateur a été trouvé.
-      if (userId) {
-        const userData = sessionStorage.getItem(USER_KEY);
-        if (userData) {
-          const memberName = JSON.parse(userData).memberName;
-          
-          const rdvDataToSend = {
-            ...this.rdv,
-            member_id: userId,
-            orga: memberName,
-            cardbox_id: this.cardboxId,
-          };
-          
-          console.log("rdvDataToSend", rdvDataToSend);
+    this.authService
+      .getUserIdFromToken()
+      .then((userId) => {
+        // Vérifier si l'ID utilisateur a été trouvé.
+        if (userId) {
+          const userData = sessionStorage.getItem(USER_KEY);
+          if (userData) {
+            const memberName = JSON.parse(userData).memberName;
 
-          this.rdvService.createRdv(rdvDataToSend).subscribe({
-            next: () => {
-              this.router.navigate([`/planning-infos/${this.id}`]);
-            },
-            error: (err) => {
-              console.error("Erreur lors de la connexion:", err);
-            },
-          });
+            const rdvDataToSend = {
+              ...this.rdv,
+              member_id: userId,
+              orga: memberName,
+              cardbox_id: this.cardboxId,
+            };
+
+            console.log("rdvDataToSend", rdvDataToSend);
+
+            this.rdvService.createRdv(rdvDataToSend).subscribe({
+              next: () => {
+                this.router.navigate([`/planning-infos/${this.id}`]);
+              },
+              error: (err) => {
+                console.error("Erreur lors de la connexion:", err);
+              },
+            });
+          }
+        } else {
+          console.error("ID utilisateur non trouvé dans le token");
         }
-      } else {
-        console.error("ID utilisateur non trouvé dans le token");
-      }
-    }).catch(error => {
-      console.error("Erreur lors de la récupération de l'ID utilisateur depuis le token:", error);
-    });
+      })
+      .catch((error) => {
+        console.error(
+          "Erreur lors de la récupération de l'ID utilisateur depuis le token:",
+          error
+        );
+      });
   }
 }
 

@@ -1,26 +1,40 @@
-
 <div id="planning-tittle">
   <h1 class="mat-typography">Planning</h1>
 </div>
 
 <div class="container">
   <mat-grid-list cols="7" rowHeight="1:1.5" gutterSize="70px">
-    <mat-grid-tile *ngFor="let thedate of dateList" [routerLink]="['/planning-infos', thedate.id]">
+    <mat-grid-tile
+      *ngFor="let thedate of dateList"
+      [routerLink]="['/planning-infos', thedate.id]"
+    >
       <mat-card fxLayout="column">
         <mat-card-content class="card-content">
           <!-- Début du conteneur pour l'image décorative et l'image du caractère -->
           <div class="image-decor-container">
             <!-- Ajoutez votre image décorative ici -->
             <!-- L'image existante du caractère -->
-            <img mat-card-image [src]="thedate.img" class="character-img" alt="carater picture 1">
-            <img id="effect" src="../../../assets/style-effect-behind-car-pic/Mask-group.png" class="card-decor" alt="Décor">
+            <img
+              mat-card-image
+              [src]="thedate.img"
+              class="character-img"
+              alt="carater picture 1"
+            />
+            <img
+              id="effect"
+              src="../../../assets/style-effect-behind-car-pic/Mask-group.png"
+              class="card-decor"
+              alt="Décor"
+            />
           </div>
           <!-- En-tête de la carte pour la date -->
           <mat-card-header fxFlex="46px">
             <mat-card-title>{{ thedate.date }}</mat-card-title>
           </mat-card-header>
           <!-- Texte pour "Voir les RDV" -->
-          <h2 class="see-rdv-buton" style="text-align: center">{{ thedate.id }}Voir les RDV</h2>
+          <h2 class="see-rdv-buton" style="text-align: center">
+            {{ thedate.id }}Voir les RDV
+          </h2>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

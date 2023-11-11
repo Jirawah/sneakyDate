@@ -13,7 +13,9 @@ import { USER_KEY } from "../consts/storagekeys.const";
 export class AuthService {
   private apiUrl = "http://localhost:3000";
   private authToken: string | null = null;
-  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject (!!sessionStorage.getItem(USER_KEY));
+  isLogged$: BehaviorSubject<boolean> = new BehaviorSubject(
+    !!sessionStorage.getItem(USER_KEY)
+  );
 
   // Méthode pour définir le token (vous pouvez appeler cette méthode après l'authentification)
   setToken(token: string) {
@@ -46,7 +48,7 @@ export class AuthService {
   //       const jsonToString = JSON.stringify(response);
   //       window.sessionStorage.setItem('user', jsonToString);
   //     },
-  //     error(err) 
+  //     error(err)
   //       console.log("Après l'appel HTTP avec erreur", err);
   //     },
   //     complete() {
@@ -80,7 +82,9 @@ export class AuthService {
   }
 
   checkIsLogged(): BehaviorSubject<boolean> {
-    const isLogged = new BehaviorSubject(!!window.sessionStorage.getItem(USER_KEY));
+    const isLogged = new BehaviorSubject(
+      !!window.sessionStorage.getItem(USER_KEY)
+    );
     return isLogged;
   }
 
@@ -120,22 +124,26 @@ export class AuthService {
   async getUserIdFromToken(): Promise<number | null> {
     const token = this.getToken();
     if (!token) return null;
-  
+
     try {
       const decodedToken = await this.jwtService.verifyToken(token);
-      if (typeof decodedToken === 'object' && decodedToken !== null && 'userId' in decodedToken) {
+      if (
+        typeof decodedToken === "object" &&
+        decodedToken !== null &&
+        "userId" in decodedToken
+      ) {
         return decodedToken.userId;
       }
     } catch (error) {
       console.error("Erreur lors de la vérification du token JWT:", error);
     }
-  
+
     return null;
   }
   // async getUserIdFromToken(): Promise<number | null> {
   //   const token = sessionStorage.getItem(USER_KEY);
   //   if (!token) return null;
-  
+
   //   try {
   //     const decodedToken = await this.jwtService.verifyToken(token);
   //     if ('userId' in decodedToken) {
@@ -144,13 +152,13 @@ export class AuthService {
   //   } catch (error) {
   //     console.error("Erreur lors de la vérification du token JWT:", error);
   //   }
-  
+
   //   return null;
   // }
   // getUserIdFromToken(): number | null {
   //   const token = sessionStorage.getItem(USER_KEY);
   //   if (!token) return null;
-  
+
   //   try {
   //     // Supposons que JwtService a une méthode 'verifyToken' qui vérifie et décode le token
   //     const decodedToken = this.jwtService.verifyToken(token);
@@ -160,7 +168,7 @@ export class AuthService {
   //   } catch (error) {
   //     console.error("Erreur lors de la vérification du token JWT:", error);
   //   }
-  
+
   //   return null;
   // }
   // getUserIdFromToken(): number | null {
@@ -186,7 +194,7 @@ export class AuthService {
 
   //   return null; // Retournez null si le token est invalide ou s'il n'y a pas d'identifiant du membre
   // }
-};
+}
 
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';

@@ -92,21 +92,25 @@ export class ProfilComponent implements OnInit {
     if (!this.oldPassword || !this.newPassword) {
       console.log("Vous devez remplir tous les champs.");
     }
-    
+
     const memberId = this.getMemberIdFromToken();
-    const payload = { oldPassword: this.oldPassword, newPassword: this.newPassword, memberId };
-    
+    const payload = {
+      oldPassword: this.oldPassword,
+      newPassword: this.newPassword,
+      memberId,
+    };
+
     this.profileService.changePassword(payload).subscribe({
       next: (response) => {
         console.log(response);
         console.log("Mot de passe changé avec succès !");
         // Optionnel : réinitialiser les champs après changement de mot de passe
-        this.oldPassword = '';
-        this.newPassword = '';
+        this.oldPassword = "";
+        this.newPassword = "";
       },
       error: (error) => {
         console.error("Erreur lors du changement de mot de passe:", error);
-      }
+      },
     });
   }
 }

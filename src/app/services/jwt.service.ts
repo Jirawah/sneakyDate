@@ -1,16 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { jwtVerify } from 'jose';
-import { MyTokenPayload } from '../interfaces/jwt-payload'; 
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { jwtVerify } from "jose";
+import { MyTokenPayload } from "../interfaces/jwt-payload";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
-
 export class JwtService {
   // Vous aurez besoin de la clé secrète ou de la clé publique/privée correspondant à celle utilisée pour signer vos JWTs
-  private readonly secretKey = 'sneakyDate';
+  private readonly secretKey = "sneakyDate";
 
   constructor() {}
 
@@ -24,7 +23,7 @@ export class JwtService {
       // Convertissez le payload en MyTokenPayload en utilisant une assertion de type double
       return payload as unknown as MyTokenPayload;
     } catch (error) {
-      console.error('Erreur de vérification du token JWT:', error);
+      console.error("Erreur de vérification du token JWT:", error);
       throw error;
     }
   }

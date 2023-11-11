@@ -4,7 +4,7 @@ import { theDate } from "../../models/thedate.models";
 @Component({
   selector: "app-planning",
   templateUrl: "./planning.component.html",
-  styleUrls: ['./planning.component.scss'],
+  styleUrls: ["./planning.component.scss"],
 })
 export class PlanningComponent implements OnInit {
   dateList: theDate[] = [];
@@ -22,16 +22,16 @@ export class PlanningComponent implements OnInit {
     while (currentDate <= endDate) {
       let id = this.calculateDayOfYear(currentDate);
       let imgId = id % 45 === 0 ? 45 : id % 45;
-      let img = 'assets/car-pics/' + imgId + '.png';
+      let img = "assets/car-pics/" + imgId + ".png";
 
       this.dateList.push({
         id,
         date: new Date(currentDate).toLocaleDateString(),
         img,
-        rdvName: 'Nom du RDV',
-        orga: 'Organisateur',
-        guestList: ['Liste des invités'],
-        statut: 'FULL/OPEN',
+        rdvName: "Nom du RDV",
+        orga: "Organisateur",
+        guestList: ["Liste des invités"],
+        statut: "FULL/OPEN",
         askToParticipate: "Envoie une demande à l'organisateur",
       });
 
@@ -49,23 +49,9 @@ export class PlanningComponent implements OnInit {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // import { Component, OnInit } from "@angular/core";
 // import { theDate } from "../models/thedate.models";
 // import { Router } from '@angular/router';
-
-
-
 
 // @Component({
 //   selector: "app-planning",
