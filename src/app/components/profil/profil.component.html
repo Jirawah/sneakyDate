@@ -2,41 +2,95 @@
   <h1 class="mat-typography">Profil</h1>
 </div>
 
-<div class="profile-container">
-  <h2>Profil de {{ memberName }}</h2>
+<div class="container">
+  <div class="profile-container">
+    <div class="profil-container-design">
+      <div class="video-container">
+        <video autoplay loop muted id="video-container">
+          <source
+          src="../../../assets/profil-animation/2023-11-11-09-57-34.mp4"
+          type="video/mp4"
+          />
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+        <div class="profil-tittle">
+          <h2>Bienvenue dans votre espace personnel {{ memberName }}</h2>
+        </div>
+      </div>
 
-  <form>
-    <!-- Champ pour le pseudonyme -->
-    <mat-form-field>
-      <mat-label>Pseudonyme</mat-label>
-      <input matInput [(ngModel)]="memberName" name="memberName" placeholder="Pseudonyme">
-    </mat-form-field>
+      <form>
+        <!-- Champ pour le pseudonyme -->
+        <mat-form-field class="field-style">
+          <mat-label>Pseudonyme</mat-label>
+          <input
+            matInput
+            [(ngModel)]="memberName"
+            name="memberName"
+            placeholder="Pseudonyme"
+          />
+        </mat-form-field>
 
-    <!-- Champ pour l'email -->
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="email" name="email" placeholder="Email">
-    </mat-form-field>
+        <!-- Champ pour l'email -->
+        <mat-form-field class="field-style">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Email"
+          />
+        </mat-form-field>
 
-    <!-- Bouton pour modifier le profil -->
-    <button mat-raised-button color="primary" (click)="editProfile()">Modifier le profil</button>
-  </form>
+        <!-- Bouton pour modifier le profil -->
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="editProfile()"
+          class="modify-button"
+        >
+          Modifier le profil
+        </button>
+      </form>
 
-  <!-- Ajout du formulaire de changement de mot de passe ici -->
-  <form>
-    <!-- Champ pour l'ancien mot de passe -->
-    <mat-form-field>
-      <mat-label>Ancien mot de passe</mat-label>
-      <input matInput [(ngModel)]="oldPassword" name="oldPassword" type="password" placeholder="Ancien mot de passe">
-    </mat-form-field>
+      <!-- Ajout du formulaire de changement de mot de passe ici -->
+      <form>
+        <!-- Champ pour l'ancien mot de passe -->
+        <mat-form-field class="field-style">
+          <mat-label>Ancien mot de passe</mat-label>
+          <input
+            matInput
+            [(ngModel)]="oldPassword"
+            name="oldPassword"
+            type="password"
+            placeholder="Ancien mot de passe"
+          />
+        </mat-form-field>
 
-    <!-- Champ pour le nouveau mot de passe -->
-    <mat-form-field>
-      <mat-label>Nouveau mot de passe</mat-label>
-      <input matInput [(ngModel)]="newPassword" name="newPassword" type="password" placeholder="Nouveau mot de passe">
-    </mat-form-field>
+        <!-- Champ pour le nouveau mot de passe -->
+        <mat-form-field class="field-style">
+          <mat-label>Nouveau mot de passe</mat-label>
+          <input
+            matInput
+            [(ngModel)]="newPassword"
+            name="newPassword"
+            type="password"
+            placeholder="Nouveau mot de passe"
+          />
+        </mat-form-field>
 
-    <!-- Bouton pour changer le mot de passe -->
-    <button mat-raised-button color="warn" (click)="changePassword()">Changer le mot de passe</button>
-  </form>
+        <!-- Bouton pour changer le mot de passe -->
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="changePassword()"
+          class="modify-button"
+        >
+          Changer le mot de passe
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="testtt">
+  <h3>test</h3>
 </div>

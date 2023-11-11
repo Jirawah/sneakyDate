@@ -2,26 +2,33 @@
   <h1 class="mat-typography">Créer un RDV</h1>
 </div>
 
-<h2>Créer un RDV pour le jour {{ id }} ({{ displayDate | date:'dd/MM/yyyy' }})</h2>
-
-<form (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>Nom du RDV</mat-label>
-    <input matInput [(ngModel)]="rdv.rdvName" name="rdvName" required />
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <mat-label>Statut</mat-label>
-    <mat-select [(ngModel)]="rdv.statut" name="statut">
-      <mat-option value="PUBLIC">PUBLIC</mat-option>
-      <mat-option value="PRIVATE">PRIVATE</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <mat-label>Liste des invités</mat-label>
-    <input matInput [(ngModel)]="rdv.guestList" name="guestList" />
-  </mat-form-field>
-  <br />
-  <button mat-raised-button type="submit">Créer</button>
-</form>
+<div class="container">
+  <div class="rdv-container">
+    <div class="rdv-container-design">
+      <h2>Créer un RDV pour le jour {{ id }} ({{ displayDate | date:'dd/MM/yyyy' }})</h2>
+      
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field class="field-style">
+          <mat-label>Nom du RDV</mat-label>
+          <input matInput [(ngModel)]="rdv.rdvName" name="rdvName" required />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="field-style">
+          <mat-label>Statut</mat-label>
+          <mat-select [(ngModel)]="rdv.statut" name="statut">
+            <mat-option value="PUBLIC">PUBLIC</mat-option>
+            <mat-option value="PRIVATE">PRIVATE</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="field-style">
+          <mat-label>Liste des invités</mat-label>
+          <input matInput [(ngModel)]="rdv.guestList" name="guestList" />
+        </mat-form-field>
+        <br />
+        <button mat-raised-button type="submit" class="rdv-button">Créer</button>
+      </form>
+    
+  </div>
+</div>
+    </div>

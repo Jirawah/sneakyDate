@@ -1,9 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
 .login-container {
-    width: 300px;
-    margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px; // Adjust the width as needed
+  width: 800px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: #7b7f84; // Change this to match your form background color
+  border: 5px solid #000000;
+  border-radius: 10px;
+  }
+
+  .login-container-design {
+    width: 100%;
+    border: 4px solid #000000;
+    background: #292929; // Dark background for the inner container
+    border-radius: 10px;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
   }
   
   #loggin-tittle {
@@ -18,4 +40,83 @@
     font-size: 60px;
     color: whitesmoke;
     font-family: 'SimpleMinimalist';
+  }
+
+  h2 {
+    color: #000000; // White color for the heading
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .field-style {
+    width: 100%;
+    height: 55px;
+    background: #d6d7d8; // Light grey background for input fields
+    border-radius: 10px;
+    border: 4px solid #000000;
+  
+    .field-style {
+      color: #d6d7d8; // Label color inside the input fields
+    }
+  
+    .mat-form-field-flex {
+      border: none;
+      padding: 0.75rem 0;
+    }
+  
+    .mat-form-field-infix {
+      border: none;
+      padding: 0 0rem;
+    }
+  
+    .mat-form-field-underline {
+      display: none;
+    }
+  
+    .mat-form-field-ripple {
+      display: none;
+    }
+  
+    input.mat-input-element .field-style {
+      padding: 1rem;
+      font-size: 1rem;
+      color: #000000; // Text color for input fields
+      background-color: #d6d7d8; // Remove any background color
+    }
+  }
+  
+  .field-style {
+    background-color: #d6d7d8;
+  }
+  
+  button.login-button {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    font-size: 1rem;
+    background-color: #2ceac6; // Background color for the submit button
+    color: #0a3c33; // Text color for the button
+    border-radius: 10px;
+    width: 101%; // Full width for the button
+    box-shadow: none;
+    border: 3px solid #000000;
+    &:hover {
+      background-color: #44706b; // Darker shade for the button hover state
+    }
+  }
+  
+  h1 {
+    font-size: 60px;
+    color: whitesmoke;
+    font-family: "SimpleMinimalist";
+  }
+  
+  .mat-typography {
+    font-family: "SimpleMinimalist", sans-serif;
   }

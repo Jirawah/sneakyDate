@@ -34,6 +34,20 @@ h1.mat-h1 {
   font-family: 'SimpleMinimalist', sans-serif !important;
 }
 
+html {
+  --mat-stepper-header-selected-state-icon-background-color: #2ceac6;
+  --mat-stepper-header-done-state-icon-background-color: #2ceac6;
+  --mat-stepper-header-edit-state-icon-background-color: #2ceac6;
+  --mat-datepicker-calendar-date-selected-state-background-color: #2ceac6;
+  --mat-datepicker-toggle-active-state-icon-color: #2ceac6;
+  --mdc-filled-text-field-caret-color: #2ceac6;
+  --mdc-filled-text-field-focus-active-indicator-color: #2ceac6;
+  --mdc-filled-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
+  --mdc-outlined-text-field-caret-color: #2ceac6;
+  --mdc-outlined-text-field-focus-outline-color: #2ceac6;
+  --mdc-outlined-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
+  /* Ajoutez d'autres variables si nécessaire */
+}
 // /* You can add global styles to this file, and also import other style files */
 // #myVideo {
 //   position: fixed;
@@ -65,28 +79,3 @@ h1.mat-h1 {
 // body, .mat-typography {
 //   font-family: 'SimpleMinimalist', sans-serif;
 // }
-
-
-
-
-
-
-
-
-
-
-
-html {
-  --mat-stepper-header-selected-state-icon-background-color: #2ceac6;
-  --mat-stepper-header-done-state-icon-background-color: #2ceac6;
-  --mat-stepper-header-edit-state-icon-background-color: #2ceac6;
-  --mat-datepicker-calendar-date-selected-state-background-color: #2ceac6;
-  --mat-datepicker-toggle-active-state-icon-color: #2ceac6;
-  --mdc-filled-text-field-caret-color: #2ceac6;
-  --mdc-filled-text-field-focus-active-indicator-color: #2ceac6;
-  --mdc-filled-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
-  --mdc-outlined-text-field-caret-color: #2ceac6;
-  --mdc-outlined-text-field-focus-outline-color: #2ceac6;
-  --mdc-outlined-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
-  /* Ajoutez d'autres variables si nécessaire */
-}
