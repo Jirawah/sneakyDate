@@ -1,8 +1,7 @@
 <header>
   <nav class="header-nav">
     <div routerLink="planning">
-      <h1>SneakyDate<br /></h1>
-      <h2>AnAmongUsRDV</h2>
+      <img src="../../../assets/logo/sneakyDateLogo.png" alt="logo" class="logo">
     </div>
     <div class="nav-deco1">
       <div class="nav-deco2">
@@ -30,7 +29,7 @@
         </div>
       </div>
       <div class="bonjour-style" *ngIf="isLogged$ | async">
-        <p>Bonjour {{ memberName }}</p>
+        <p>Bonjour <br><br> {{ memberName }}</p>
       </div>
     </div>
   </nav>

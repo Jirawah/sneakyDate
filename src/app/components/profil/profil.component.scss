@@ -98,7 +98,7 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .field-style {
@@ -114,7 +114,7 @@ form {
 
   .mat-form-field-flex {
     border: none;
-    padding: 0.75rem 0;
+    padding: 0 0;
   }
 
   .mat-form-field-infix {
@@ -144,7 +144,7 @@ form {
 
 button.modify-button {
   margin-top: 1px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   padding: 1.5rem;
   font-size: 1rem;
   background-color: #2ceac6; // Background color for the submit button
