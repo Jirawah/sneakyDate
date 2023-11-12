@@ -6,15 +6,19 @@
   <div class="login-container">
     <div class="login-container-design">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <mat-form-field class="field-style">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" required />
-        </mat-form-field>
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+          </mat-form-field>
+        </div>
 
-        <mat-form-field class="field-style">
-          <mat-label>Mot de passe</mat-label>
-          <input matInput type="password" formControlName="password" required />
-        </mat-form-field>
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" required />
+          </mat-form-field>
+        </div>
 
         <button mat-raised-button type="submit" class="login-button">
           Se connecter

@@ -81,7 +81,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: { appearance: "outline" },
+      useValue: { appearance: 'outline' },
     },
   ],
   bootstrap: [AppComponent],

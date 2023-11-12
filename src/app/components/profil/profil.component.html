@@ -22,27 +22,33 @@
       </div>
 
       <form>
-        <!-- Champ pour le pseudonyme -->
-        <mat-form-field class="field-style">
-          <mat-label>Pseudonyme</mat-label>
-          <input
+
+        <div class="testing">
+          <!-- Champ pour le pseudonyme -->
+          <mat-form-field class="field-style">
+            <mat-label>Pseudonyme</mat-label>
+            <input
             matInput
             [(ngModel)]="memberName"
             name="memberName"
             placeholder="Pseudonyme"
-          />
-        </mat-form-field>
-
-        <!-- Champ pour l'email -->
-        <mat-form-field class="field-style">
-          <mat-label>Email</mat-label>
-          <input
+            />
+          </mat-form-field>
+        </div>
+          
+        <div class="testing">
+          <!-- Champ pour l'email -->
+          <mat-form-field class="field-style">
+            <mat-label>Email</mat-label>
+            <input
             matInput
             [(ngModel)]="email"
             name="email"
             placeholder="Email"
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
+        
 
         <!-- Bouton pour modifier le profil -->
         <button
@@ -57,29 +63,33 @@
 
       <!-- Ajout du formulaire de changement de mot de passe ici -->
       <form>
-        <!-- Champ pour l'ancien mot de passe -->
-        <mat-form-field class="field-style">
-          <mat-label>Ancien mot de passe</mat-label>
-          <input
+        <div class="testing">
+          <!-- Champ pour l'ancien mot de passe -->
+          <mat-form-field class="field-style">
+            <mat-label>Ancien mot de passe</mat-label>
+            <input
             matInput
             [(ngModel)]="oldPassword"
             name="oldPassword"
             type="password"
             placeholder="Ancien mot de passe"
-          />
-        </mat-form-field>
-
-        <!-- Champ pour le nouveau mot de passe -->
-        <mat-form-field class="field-style">
-          <mat-label>Nouveau mot de passe</mat-label>
-          <input
+            />
+          </mat-form-field>
+        </div>
+          
+        <div class="testing">
+          <!-- Champ pour le nouveau mot de passe -->
+          <mat-form-field class="field-style">
+            <mat-label>Nouveau mot de passe</mat-label>
+            <input
             matInput
             [(ngModel)]="newPassword"
             name="newPassword"
             type="password"
             placeholder="Nouveau mot de passe"
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
 
         <!-- Bouton pour changer le mot de passe -->
         <button
@@ -93,7 +103,4 @@
       </form>
     </div>
   </div>
-</div>
-<div class="testtt">
-  <h3>test</h3>
 </div>

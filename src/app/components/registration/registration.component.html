@@ -6,51 +6,59 @@
   <div class="registration-container">
     <div class="registration-container-design">
       <form (ngSubmit)="register()">
-        <mat-form-field class="field-style">
-          <mat-label>Pseudonyme</mat-label>
-          <input
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Pseudonyme</mat-label>
+            <input
             matInput
             type="text"
             [(ngModel)]="memberName"
             name="pseudonyme"
             required
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
 
-        <mat-form-field class="field-style">
-          <mat-label>Email</mat-label>
-          <input
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Email</mat-label>
+            <input
             matInput
             type="email"
             [(ngModel)]="email"
             name="email"
             required
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
 
-        <mat-form-field class="field-style">
-          <mat-label>Mot de passe</mat-label>
-          <input
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Mot de passe</mat-label>
+            <input
             (input)="checkPassword()"
             matInput
             type="password"
             [(ngModel)]="password"
             name="password"
             required
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
 
-        <mat-form-field class="field-style">
-          <mat-label>Confirmez le mot de passe</mat-label>
-          <input
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Confirmez le mot de passe</mat-label>
+            <input
             (input)="checkPassword()"
             matInput
             type="password"
             [(ngModel)]="confirmPassword"
             name="confirmPassword"
             required
-          />
-        </mat-form-field>
+            />
+          </mat-form-field>
+        </div>
 
         <button mat-raised-button type="submit" class="registration-button">
           S'inscrire

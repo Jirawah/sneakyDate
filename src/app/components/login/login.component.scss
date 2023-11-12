@@ -60,7 +60,6 @@ form {
   height: 55px;
   background: #d6d7d8; // Light grey background for input fields
   border-radius: 10px;
-  border: 4px solid #000000;
 
   .field-style {
     color: #d6d7d8; // Label color inside the input fields
@@ -103,7 +102,7 @@ button.login-button {
   background-color: #2ceac6; // Background color for the submit button
   color: #0a3c33; // Text color for the button
   border-radius: 10px;
-  width: 101%; // Full width for the button
+  width: 100%; // Full width for the button
   box-shadow: none;
   border: 3px solid #000000;
   &:hover {
@@ -125,4 +124,11 @@ input:-webkit-autofill {
   -webkit-text-fill-color: [VotreCouleurDeTexte] !important;
   transition: background-color 5000s ease-in-out 0s;
   -webkit-box-shadow: 0 0 0 30px #d6d7d8 inset !important;
+}
+
+.testing {
+  border: 4px solid #000000;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #d6d7d8;
 }
