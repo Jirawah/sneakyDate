@@ -1,10 +1,3 @@
-@font-face {
-  font-family: "SimpleMinimalist";
-  src: url("/src/assets/fonts/SimpleMinimalist.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 #myVideo {
   position: fixed;
   right: 0;
@@ -20,19 +13,6 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: "SimpleMinimalist", sans-serif !important; /* Appliquer la police à tout le contenu */
-}
-
-/* Surcharge des styles Angular Material pour les h1 */
-.mat-typography .mat-h1,
-.mat-typography h1,
-h1.mat-h1 {
-  font-family: "SimpleMinimalist", sans-serif !important; /* Utilisation de !important pour forcer la surcharge */
-}
-
-/* Surcharge spécifique pour les titres de la barre d'outils Angular Material */
-.mat-toolbar-title {
-  font-family: "SimpleMinimalist", sans-serif !important;
 }
 
 html {

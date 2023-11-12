@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { theDate } from "../../models/thedate.models";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-planning",
@@ -8,6 +9,9 @@ import { theDate } from "../../models/thedate.models";
 })
 export class PlanningComponent implements OnInit {
   dateList: theDate[] = [];
+  isLogged$ = this.authService.isLogged$;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.generatePlanning();

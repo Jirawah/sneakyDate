@@ -231,7 +231,6 @@ h2 {
 h3 {
   color: whitesmoke;
   font-size: 34px;
-  font-family: "SimpleMinimalist", sans-serif;
 }
 
 .image-decor-container {
@@ -255,19 +254,18 @@ h3 {
 h1 {
   font-size: 60px;
   color: whitesmoke;
-  font-family: "SimpleMinimalist";
   margin-top: 40px;
   margin-bottom: 40px;
-}
-
-.mat-typography {
-  font-family: "SimpleMinimalist", sans-serif;
 }
 
 #planning-tittle {
   padding-top: 140px;
   text-align: center;
-  font-family: "SimpleMinimalist";
   margin-top: 60px;
   margin-bottom: 70px;
+}
+
+.padding {
+  color: transparent;
+  padding: 20px;
 }

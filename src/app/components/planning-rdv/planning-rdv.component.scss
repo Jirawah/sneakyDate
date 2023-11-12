@@ -39,7 +39,6 @@
 #planning-rdv-tittle {
   padding-top: 140px;
   text-align: center;
-  font-family: "SimpleMinimalist";
   margin-top: 100px;
   margin-bottom: 80px;
 }
@@ -88,7 +87,7 @@ button.rdv-button {
   background-color: #2ceac6; // Background color for the submit button
   color: #0a3c33; // Text color for the button
   border-radius: 10px;
-  width: 101%; // Full width for the button
+  width: 100%; // Full width for the button
   box-shadow: none;
   border: 3px solid #000000;
   &:hover {
@@ -99,7 +98,6 @@ button.rdv-button {
 h1 {
   font-size: 60px;
   color: whitesmoke;
-  font-family: "SimpleMinimalist";
 }
 
 h2 {
@@ -119,4 +117,10 @@ form {
   border-radius: 10px;
   padding: 4px;
   background-color: #d6d7d8;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: [VotreCouleurDeTexte] !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0 30px #d6d7d8 inset !important;
 }

@@ -66,6 +66,7 @@ export class PlanningRdvComponent implements OnInit {
     this.authService
       .getUserIdFromToken()
       .then((userId) => {
+        console.log(userId);
         // Vérifier si l'ID utilisateur a été trouvé.
         if (userId) {
           const userData = sessionStorage.getItem(USER_KEY);

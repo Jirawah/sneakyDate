@@ -130,9 +130,10 @@ export class AuthService {
       if (
         typeof decodedToken === "object" &&
         decodedToken !== null &&
-        "userId" in decodedToken
+        "memberId" in decodedToken &&
+        typeof decodedToken.memberId === "number"
       ) {
-        return decodedToken.userId;
+        return decodedToken.memberId as number;
       }
     } catch (error) {
       console.error("Erreur lors de la vérification du token JWT:", error);

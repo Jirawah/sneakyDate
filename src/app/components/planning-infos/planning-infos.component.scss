@@ -32,6 +32,7 @@
 .table-design2 {
   background-color: #d6d7d8;
   border-radius: 0px 0px 10px 10px !important;
+  
 }
 
 .table-tittle {
@@ -81,7 +82,6 @@ button.create-rdv-button {
 #planning-infos-tittle {
   padding-top: 140px;
   text-align: center;
-  font-family: "SimpleMinimalist";
   margin-top: 100px;
   margin-bottom: 80px;
 }
@@ -89,7 +89,6 @@ button.create-rdv-button {
 h1 {
   font-size: 60px;
   color: whitesmoke;
-  font-family: "SimpleMinimalist";
 }
 
 h2 {
@@ -98,3 +97,13 @@ h2 {
   margin-bottom: 1rem;
   text-align: center;
 }
+
+th {
+  border-bottom: 3px solid #000000;
+}
+
+td {
+  border-bottom: 3px solid #000000 !important;
+}
+
+
