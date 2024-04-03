@@ -1,10 +1,10 @@
-import express from "express";
-import session from "express-session";
+import bcrypt from "bcrypt";
 import bodyParser from "body-parser";
 import cors from "cors";
+import express from "express";
+import session from "express-session";
+import * as jose from 'jose';
 import mysql from "mysql2";
-import bcrypt from "bcrypt";
-import * as jose from 'jose'
 
 import dotenv from "dotenv";
 dotenv.config();
