@@ -48,19 +48,28 @@ app.use(
 // Parse JSON requests
 app.use(bodyParser.json());
 
-// Configuration de la connexion à MySQL
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "sneakydate",
-  port: 3306,
-});
+// Configuration de la connexion à MySQL en utilisant JawsDB MySQL
+const dbUrl = process.env.JAWSDB_URL;
+const connection = mysql.createConnection(dbUrl);
 
 connection.connect((err) => {
   if (err) throw err;
   console.log("Connecté à la base de données MySQL!");
 });
+// // Configuration de la connexion à MySQL
+// const connection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "sneakydate",
+//   port: 3306,
+// });
+
+// connection.connect((err) => {
+//   if (err) throw err;
+//   console.log("Connecté à la base de données MySQL!");
+// });
+
 
 const getUserByEmail = async function (email, callback) {
   const query = "SELECT * FROM member WHERE email = ?";
