@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.planning-infos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px; // Adjust the width as needed
+  width: 1400px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: #7b7f84; // Change this to match your form background color
+  border: 5px solid #000000;
+  border-radius: 10px; // Rounded corners for the outer container
+}
+
+.table-design {
+  background-color: #7b7f84;
+  margin-top: 20px;
+  border-left: 4px solid #000000;
+  border-right: 4px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.table-design2 {
+  background-color: #d6d7d8;
+  border-radius: 0px 0px 10px 10px !important; 
+}
+
+.last-row-design {
+  border-radius: 0px 0px 0px 10px;
+}
+
+.last-row-design2:last-child {
+  border-radius: 0px 0px 10px 0px;
+}
+
+.table-tittle {
+  border-top: 4px solid #000000;
+  border-bottom: 3px solid #000000;
+  border-radius: 10px 10px 0px 0px;
+}
+
+h3 {
+  margin-top: 14px;
+  font-size: 30px;
+  color: #000000;
+}
+
+.planning-infos-container-design {
+  text-align: center;
+  width: 100%;
+  border: 4px solid #000000;
+  background: #292929; // Dark background for the inner container
+  border-radius: 10px;
+  padding: 20px;
+}
+
+button.create-rdv-button {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  background-color: #2ceac6; // Background color for the submit button
+  color: #0a3c33; // Text color for the button
+  border-radius: 10px;
+  width: 16%; // Full width for the button
+  box-shadow: none;
+  border: 3px solid #000000;
+  &:hover {
+    background-color: #44706b; // Darker shade for the button hover state
+  }
+}
+
+.tittle {
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#planning-infos-tittle {
+  padding-top: 140px;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+h1 {
+  font-size: 60px;
+  color: whitesmoke;
+}
+
+h2 {
+  color: #ffffff; // White color for the heading
+  font-size: 38px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+th {
+  border-bottom: 3px solid #000000;
+  color: #000000;
+}
+
+td {
+  border-bottom: 3px solid #000000 !important;
+}
+
+

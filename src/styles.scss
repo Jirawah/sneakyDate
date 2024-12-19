@@ -1,0 +1,160 @@
+@import './assets/fonts/font.scss';
+
+.custom-font {
+  font-family: 'Savourer', sans-serif !important;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; /* Couverture minimale en largeur */
+  min-height: 100%; /* Couverture minimale en hauteur */
+  width: auto; /* Pour maintenir le rapport d'aspect */
+  height: auto; /* Pour maintenir le rapport d'aspect */
+  z-index: -2; /* Pour s'assurer que le contenu est par-dessus la vidéo */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  --mat-stepper-header-selected-state-icon-background-color: #2ceac6;
+  --mat-stepper-header-done-state-icon-background-color: #2ceac6;
+  --mat-stepper-header-edit-state-icon-background-color: #2ceac6;
+  --mat-datepicker-calendar-date-selected-state-background-color: #2ceac6;
+  --mat-datepicker-toggle-active-state-icon-color: #2ceac6;
+  --mdc-filled-text-field-caret-color: #2ceac6;
+  --mdc-filled-text-field-focus-active-indicator-color: #2ceac6;
+  --mdc-filled-text-field-focus-label-text-color: rgba(44, 234, 198, 0.87);
+  --mdc-outlined-text-field-caret-color: #2ceac6;
+  --mdc-outlined-text-field-focus-outline-color: #2ceac6;
+  --mdc-outlined-text-field-focus-label-text-color: #0a3c33;
+  --mat-badge-background-color: #2ceac6;
+  --mat-select-focused-arrow-color: #2ceac6;
+  --mat-option-selected-state-label-text-color: #2ceac6;
+
+  
+
+   // écriture alerte top left
+  /* Ajoutez d'autres variables si nécessaire */
+  
+  --mdc-outlined-text-field-input-text-placeholder-color: #0a3c33;
+  //--mdc-outlined-text-field-label-text-color: rgb(0, 255, 55);
+  
+// --mdc-filled-text-field-label-text-color: #0a3c33;
+--mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
+--mat-select-disabled-trigger-text-color: rgba(0, 0, 0, 0.38);
+--mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
+--mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+--mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
+--mat-menu-item-label-text-color: rgba(0, 0, 0, 0.87);
+--mat-menu-item-icon-color: rgba(0, 0, 0, 0.87);
+--mat-paginator-container-text-color: rgba(0, 0, 0, 0.87);
+--mat-paginator-enabled-icon-color: rgba(0, 0, 0, 0.54);
+--mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
+--mdc-checkbox-disabled-unselected-icon-color: rgba(0, 0, 0, 0.38);
+--mdc-checkbox-selected-checkmark-color: #000;
+--mdc-checkbox-unselected-focus-icon-color: #212121;
+--mdc-checkbox-unselected-hover-icon-color: #212121;
+--mdc-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.54);
+--mdc-checkbox-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+--mdc-checkbox-unselected-focus-state-layer-color: black;
+--mdc-checkbox-unselected-hover-state-layer-color: black;
+--mdc-checkbox-unselected-pressed-state-layer-color: black;
+--mat-table-header-headline-color: rgba(0, 0, 0, 0.87);
+--mat-table-row-item-label-text-color: rgba(0, 0, 0, 0.87);
+--mat-table-row-item-outline-color: rgba(0, 0, 0, 0.12);
+--mat-bottom-sheet-container-text-color: rgba(0, 0, 0, 0.87);
+--mat-legacy-button-toggle-text-color: rgba(0, 0, 0, 0.38);
+--mat-legacy-button-toggle-state-layer-color: rgba(0, 0, 0, 0.12);
+--mat-legacy-button-toggle-selected-state-text-color: rgba(0, 0, 0, 0.54);
+--mat-legacy-button-toggle-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+--mat-standard-button-toggle-text-color: rgba(0, 0, 0, 0.87);
+--mat-standard-button-toggle-state-layer-color: black;
+--mat-standard-button-toggle-selected-state-text-color: rgba(0, 0, 0, 0.87);
+--mat-standard-button-toggle-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+--mat-standard-button-toggle-disabled-selected-state-text-color: rgba(0, 0, 0, 0.87);
+--mat-datepicker-toggle-icon-color: rgba(0, 0, 0, 0.54);
+--mat-datepicker-calendar-body-label-text-color: rgba(0, 0, 0, 0.54);
+--mat-datepicker-calendar-period-button-icon-color: rgba(0, 0, 0, 0.54);
+--mat-datepicker-calendar-navigation-button-icon-color: rgba(0, 0, 0, 0.54);
+--mat-datepicker-calendar-header-divider-color: rgba(0, 0, 0, 0.12);
+--mat-datepicker-calendar-header-text-color: rgba(0, 0, 0, 0.54);
+--mat-datepicker-calendar-date-today-outline-color: rgba(0, 0, 0, 0.38);
+--mat-datepicker-calendar-date-today-disabled-state-outline-color: rgba(0, 0, 0, 0.18);
+--mat-datepicker-calendar-date-text-color: rgba(0, 0, 0, 0.87);
+--mat-datepicker-calendar-date-outline-color: transparent;
+--mat-datepicker-calendar-date-disabled-state-text-color: rgba(0, 0, 0, 0.38);
+--mat-datepicker-calendar-date-preview-state-outline-color: rgba(0, 0, 0, 0.24);
+--mat-datepicker-range-input-separator-color: rgba(0, 0, 0, 0.87);
+--mat-datepicker-range-input-disabled-state-separator-color: rgba(0, 0, 0, 0.38);
+--mat-datepicker-range-input-disabled-state-text-color: rgba(0, 0, 0, 0.38);
+--mat-datepicker-calendar-container-text-color: rgba(0, 0, 0, 0.87);
+--mat-expansion-container-text-color: rgba(0, 0, 0, 0.87);
+--mat-expansion-actions-divider-color: rgba(0, 0, 0, 0.12);
+--mat-expansion-header-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+--mat-expansion-header-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+--mat-expansion-header-disabled-state-text-color: rgba(0, 0, 0, 0.26);
+--mat-expansion-header-text-color: rgba(0, 0, 0, 0.87);
+--mat-expansion-header-description-color: rgba(0, 0, 0, 0.54);
+--mat-expansion-header-indicator-color: rgba(0, 0, 0, 0.54);
+--mat-sidenav-container-divider-color: rgba(0, 0, 0, 0.12);
+--mat-sidenav-container-text-color: rgba(0, 0, 0, 0.87);
+--mat-sidenav-content-text-color: rgba(0, 0, 0, 0.87);
+--mat-sidenav-scrim-color: rgba(0, 0, 0, 0.6);
+--mat-stepper-line-color: rgba(0, 0, 0, 0.12);
+--mat-stepper-header-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+--mat-stepper-header-focus-state-layer-color: rgba(0, 0, 0, 0.04);
+--mat-stepper-header-label-text-color: rgba(0, 0, 0, 0.54);
+--mat-stepper-header-optional-label-text-color: rgba(0, 0, 0, 0.54);
+--mat-stepper-header-selected-state-label-text-color: rgba(0, 0, 0, 0.87);
+--mat-stepper-header-icon-background-color: rgba(0, 0, 0, 0.54);
+}
+
+.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after,
+.mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+    color: #2ceac6; /* ou n'importe quelle couleur hexadécimale, rgba, etc. */
+}
+
+.alert-danger {
+  color: #ffffff;
+}
+
+.ng-star-inserted {
+  color: #ffffff;
+}
+// /* You can add global styles to this file, and also import other style files */
+// #myVideo {
+//   position: fixed;
+//   right: 0;
+//   bottom: 0;
+//   min-width: 100%; /* Couverture minimale en largeur */
+//   min-height: 100%; /* Couverture minimale en hauteur */
+//   width: auto; /* Pour maintenir le rapport d'aspect */
+//   height: auto; /* Pour maintenir le rapport d'aspect */
+//   z-index: -1; /* Pour s'assurer que le contenu est par-dessus la vidéo */
+//   background-size: cover; /* Couvrir l'écran tout en maintenant le rapport d'aspect */
+// }
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+// }
+
+// @font-face {
+//   font-family: 'SimpleMinimalist';
+//   src: url('/src/assets/fonts/SimpleMinimalist.otf') format('opentype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// body, .mat-typography {
+//   font-family: 'SimpleMinimalist', sans-serif;
+// }

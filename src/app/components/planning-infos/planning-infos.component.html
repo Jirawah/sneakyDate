@@ -1,0 +1,85 @@
+<div id="planning-infos-tittle">
+  <h1 class="mat-typography">Espace RDV</h1>
+</div>
+
+<div class="container">
+  <div class="planning-infos-container">
+    <div class="planning-infos-container-design">
+      <h2>Détail pour le {{ id }}ème jour
+        ({{
+        displayDate | date : "dd/MM/yyyy"
+      }})
+    </h2>
+
+      <!-- Bouton pour créer un RDV (salon) -->
+      <button
+        mat-raised-button
+        [routerLink]="['/planning-rdv', id]"
+        class="create-rdv-button"
+      >
+        Créer un RDV
+      </button>
+
+      <div class="table-design">
+        <!-- Tableau des RDVs (salons) -->
+        <div class="table-tittle">
+          <h3>Liste des salons</h3>
+        </div>
+        <table
+          class="table-design2"
+          mat-table
+          *ngIf="dataSource$ | async as dataSource"
+          [dataSource]="dataSource"
+        >
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Identifiant</th>
+            <td mat-cell *matCellDef="let element" class="last-row-design">{{ element.rdv_id }}</td>
+          </ng-container>
+
+          <!-- Nom du RDV Column -->
+          <ng-container matColumnDef="rdvName">
+            <th mat-header-cell *matHeaderCellDef>Nom du RDV</th>
+            <td mat-cell *matCellDef="let element">{{ element.rdvName }}</td>
+          </ng-container>
+
+          <!-- Organisateur Column -->
+          <ng-container matColumnDef="orga">
+            <th mat-header-cell *matHeaderCellDef>Organisateur</th>
+            <td mat-cell *matCellDef="let element">{{ element.orga }}</td>
+          </ng-container>
+
+          <!-- Invités Column -->
+          <ng-container matColumnDef="guessList">
+            <th mat-header-cell *matHeaderCellDef>Invités</th>
+            <td mat-cell *matCellDef="let element">{{ element.guessList }}</td>
+          </ng-container>
+
+          <!-- Statut Column -->
+          <ng-container matColumnDef="statut">
+            <th mat-header-cell *matHeaderCellDef>Statut</th>
+            <td mat-cell *matCellDef="let element">{{ element.statut }}</td>
+          </ng-container>
+
+          <!-- Bouton "Demander à participer" Column -->
+          <ng-container matColumnDef="askToParticipate">
+            <th mat-header-cell *matHeaderCellDef>Demander à participer</th>
+            <td mat-cell *matCellDef="let element"  class="last-row-design2">
+              <button
+                mat-button
+                *ngIf="
+                  element.statut == 'PUBLIC' &&
+                  element.guessList < maxGuestLimit
+                "
+              >
+                Demander
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

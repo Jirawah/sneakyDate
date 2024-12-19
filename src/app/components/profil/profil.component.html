@@ -1,0 +1,106 @@
+<video autoplay loop muted id="myVideo">
+  <source
+    src="/assets/homepage-animation/2023-11-10-01-46-30.mp4"
+    type="video/mp4"
+  />
+  Your browser does not support HTML5 video.
+</video>
+<div class="container">
+  <div class="profile-container">
+    <div class="profil-container-design">
+      <div class="video-container">
+        <video autoplay loop muted id="video-container">
+          <source
+            src="../../../assets/profil-animation/2023-11-11-09-57-34.mp4"
+            type="video/mp4"
+          />
+          Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+        <div class="profil-tittle">
+          <h2>Bienvenue dans votre espace personnel imposteur</h2>
+        </div>
+      </div>
+
+      <form>
+
+        <div class="testing">
+          <!-- Champ pour le pseudonyme -->
+          <mat-form-field class="field-style">
+            <mat-label>Pseudonyme</mat-label>
+            <input
+            matInput
+            [(ngModel)]="memberName"
+            name="memberName"
+            placeholder="Pseudonyme"
+            />
+          </mat-form-field>
+        </div>
+          
+        <div class="testing">
+          <!-- Champ pour l'email -->
+          <mat-form-field class="field-style">
+            <mat-label>Email</mat-label>
+            <input
+            matInput
+            [(ngModel)]="email"
+            name="email"
+            placeholder="Email"
+            />
+          </mat-form-field>
+        </div>
+        
+
+        <!-- Bouton pour modifier le profil -->
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="editProfile()"
+          class="modify-button"
+        >
+          Modifier le profil
+        </button>
+      </form>
+
+      <!-- Ajout du formulaire de changement de mot de passe ici -->
+      <form>
+        <div class="testing">
+          <!-- Champ pour l'ancien mot de passe -->
+          <mat-form-field class="field-style">
+            <mat-label>Ancien mot de passe</mat-label>
+            <input
+            matInput
+            [(ngModel)]="oldPassword"
+            name="oldPassword"
+            type="password"
+            placeholder="Ancien mot de passe"
+            />
+          </mat-form-field>
+        </div>
+          
+        <div class="testing">
+          <!-- Champ pour le nouveau mot de passe -->
+          <mat-form-field class="field-style">
+            <mat-label>Nouveau mot de passe</mat-label>
+            <input
+            matInput
+            [(ngModel)]="newPassword"
+            name="newPassword"
+            type="password"
+            placeholder="Nouveau mot de passe"
+            />
+          </mat-form-field>
+        </div>
+
+        <!-- Bouton pour changer le mot de passe -->
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="changePassword()"
+          class="modify-button"
+        >
+          Changer le mot de passe
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

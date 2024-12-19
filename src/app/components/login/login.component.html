@@ -1,0 +1,50 @@
+<div id="loggin-tittle">
+  <h1 class="mat-typography">Connexion</h1>
+</div>
+
+<div class="container">
+  <div class="login-container">
+    <div class="login-container-design">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+          </mat-form-field>
+        </div>
+
+        <div class="testing">
+          <mat-form-field class="field-style">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="password" required />
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button type="submit" class="login-button">
+          Se connecter
+        </button>
+      </form>
+
+      <div *ngIf="loginError">{{ loginError }}</div>
+    </div>
+  </div>
+</div>
+<!-- <div class="login-container">
+    <h2>Connexion</h2>
+  
+    <form (ngSubmit)="login()">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required>
+      </mat-form-field>
+  
+      <button mat-raised-button type="submit">Se connecter</button>
+    </form>
+  
+    <div *ngIf="message">{{ message }}</div>
+</div> -->

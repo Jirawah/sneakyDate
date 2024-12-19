@@ -1,0 +1,95 @@
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 2rem;
+  //background-color: #44706b;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.88);
+  border-bottom: 4px solid #000000;
+  z-index: 10;
+}
+
+.nav-btn1 {
+  width: 100%;
+  display: flex;
+  background-color: #2ceac6;
+  color: #0a3c33;
+  padding: 20px;
+  //padding-left: 29px;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  &:hover {
+    background-color: #44706b; // Darker shade for the button hover state
+  }
+}
+
+.nav-btn2 {
+  margin-top: 6px;
+  display: flex;
+  background-color: #2ceac6;
+  color: #0a3c33;
+  padding: 20px;
+  //padding-left: 29px;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  &:hover {
+    background-color: #44706b; // Darker shade for the button hover state
+  }
+}
+
+// .nav-deco1 {
+//   background: #7b7f81;
+// padding-left: 8px;
+// padding-right: 8px;
+// padding-top: 12px;
+// padding-bottom: 12px; // Espace à l'intérieur de chaque tuile
+// border: 4px solid #000000;
+// border-radius: 14px;
+// }
+.nav-deco1 {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between; /* Répartit l'espace entre les éléments */
+  align-items: center; /* Alignement vertical des éléments */
+  background: #7b7f81;
+  padding: 14px 8px; /* Padding uniforme */
+  border: 4px solid #000000;
+  border-radius: 14px;
+}
+
+.nav-deco2 {
+  display: flex;
+  justify-content: space-between; /* Répartit l'espace entre les éléments */
+  align-items: center;
+  padding: 6px;
+  max-width: 500px; // Ajustez selon la largeur souhaitée
+  background-color: #292929;
+  border: 3px solid #000000;
+  border-radius: 14px;
+  margin-top: 0px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Assure qu'il reste au-dessus des autres éléments */
+}
+
+.bonjour-style {
+  padding-left: 30px;
+  font-size: 26px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+p {
+  color: #000000;
+  font-weight: 600;
+}
+
+.logo {
+  width: 18%;
+}

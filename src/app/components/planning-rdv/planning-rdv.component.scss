@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.rdv-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px; // Adjust the width as needed
+  width: 800px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: #7b7f84; // Change this to match your form background color
+  border: 5px solid #000000;
+  border-radius: 10px;
+}
+
+.rdv-container-design {
+  width: 100%;
+  border: 4px solid #000000;
+  background: #292929; // Dark background for the inner container
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.tittle {
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#planning-rdv-tittle {
+  padding-top: 140px;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+.field-style {
+  width: 100%;
+  height: 55px;
+  background: #d6d7d8; // Light grey background for input fields
+  border-radius: 10px;
+  
+  .field-style {
+    color: #d6d7d8; // Label color inside the input fields
+  }
+
+  .mat-form-field-flex {
+    border: none;
+  }
+
+  .mat-form-field-infix {
+    border: none;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-ripple {
+    display: none;
+  }
+
+  input.mat-input-element .field-style {
+    font-size: 1rem;
+    color: #000000; // Text color for input fields
+    background-color: #d6d7d8; // Remove any background color
+  }
+}
+
+.field-style {
+  background-color: #d6d7d8;
+}
+
+button.rdv-button {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  font-size: 1rem;
+  background-color: #2ceac6; // Background color for the submit button
+  color: #0a3c33; // Text color for the button
+  border-radius: 10px;
+  width: 100%; // Full width for the button
+  box-shadow: none;
+  border: 3px solid #000000;
+  &:hover {
+    background-color: #44706b; // Darker shade for the button hover state
+  }
+}
+
+h1 {
+  font-size: 60px;
+  color: whitesmoke;
+}
+
+h2 {
+  color: #000000; // White color for the heading
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testing {
+  border: 4px solid #000000;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #d6d7d8;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: [VotreCouleurDeTexte] !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0 30px #d6d7d8 inset !important;
+}
